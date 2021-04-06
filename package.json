@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~11.2.8",
     "@angular/platform-browser-dynamic": "~11.2.8",
     "@angular/router": "~11.2.8",
-    "bootstrap": "^4.6.0",
     "ifsc": "^1.5.11",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
