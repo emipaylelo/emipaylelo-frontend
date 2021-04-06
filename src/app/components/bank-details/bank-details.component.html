@@ -1,0 +1,64 @@
+<header>
+    emiPAYlelo
+    <button style="font-size: 15px;" class="btn  float-right " type="submit">
+        Logout
+    </button>
+
+</header>
+<br><br><br><br>
+
+<div class="boxed">
+    <div class=" form" style="font-size: 30px;align-items: center;
+        justify-content: center; padding: 20px 100px; color: #0347F7;font-weight: 700;">BANK DETAILS</div>
+
+
+
+    <form #bankForm="ngForm" (ngSubmit)="checkBankDetails(bankForm)" style="align-items: center;">
+        <fieldset class="border p-2 w-100">
+            <legend class="w-25">Acc Holder</legend>
+            <input type="text" class="no-outline" required #acnm="ngModel" [(ngModel)]="bankdetails.accountHolderName"
+                id="an" placeholder="Enter account holder name" name="an" style="width:300px; height: 40px;">
+
+        </fieldset>
+        <div *ngIf=" acnm.invalid &&(acnm.dirty||acnm.touched)" style="color: red;">
+            <div *ngIf="acnm.errors?.required">Account Holders Name Required</div>
+            <br>
+        </div>
+        <br>
+        <fieldset class="border p-2 w-100">
+            <legend class="w-25">Acc Number</legend>
+            <input type="text" class="no-outline" required #acno="ngModel" [(ngModel)]="bankdetails.accountNo" id="an"
+                placeholder="Enter account number" name="an" style="width:300px; height: 40px;">
+
+        </fieldset>
+        <div *ngIf=" acno.invalid &&(acno.dirty||acno.touched)" style="color: red;">
+            <div *ngIf="acno.errors?.required">Account Number Required</div>
+            <br>
+        </div>
+        <fieldset class="border p-2 w-100">
+            <legend class="w-25">IFSC</legend>
+            <!-- <input type="text" class="no-outline" required #ifsc="ngModel" [(ngModel)]="ifsc1"
+                (change)="getBankName($event.target)" id="ifsc" placeholder="Enter IFSC" name="ifsc"
+                style="width:300px; height: 40px;"> -->
+            <input type="text" class="no-outline" required (input)="getBankName($event.target)" id="ifsc"
+                placeholder="Enter IFSC" name="ifsc" style="width:300px; height: 40px;">
+
+
+        </fieldset>
+        <!-- <div *ngIf=" ifsc.invalid &&(ifsc.dirty||ifsc.touched)" style="color: red;">
+            <div *ngIf="ifsc.errors?.required">IFSC required</div>
+            <br>
+        </div> -->
+        <br>
+        <fieldset class="border p-2 w-100">
+            <legend>Bank Name</legend>
+            {{bankName}}
+
+        </fieldset>
+        <br><br><br>
+        <button style="width: 400px;" type="submit" id="btn1" class="btn btn-default">SUBMIT</button>
+
+
+
+    </form>
+</div>

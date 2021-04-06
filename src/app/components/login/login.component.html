@@ -1,0 +1,90 @@
+<header>
+    emiPAYlelo
+    <button style="font-size: 15px;" class="btn  float-right " type="submit">
+        Login
+    </button>
+
+</header>
+<br><br><br><br>
+<div class="boxed">
+    <div class="form" style="font-size: 30px;align-items: center;
+    justify-content: center; padding: 20px 100px; color: #0347F7;font-weight: 700;">LOGIN</div>
+
+
+
+    <form #loginForm="ngForm" class="form" (ngSubmit)="checkLogin(loginForm)" style="align-items: center;">
+        <fieldset class="border p-2 w-100">
+            <legend class="w-25">Email</legend>
+
+            <input type="email" required #em="ngModel" placeholder="Enter Email Address" name="email"
+                [(ngModel)]="user.userEmail" style="width:300px; height: 40px;"
+                pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" />
+            <div *ngIf=" em.invalid &&(em.dirty||em.touched)" style="color: red;">
+                <div *ngIf="em.errors?.required">Email required</div>
+                <div *ngIf="em.errors?.pattern">Email is invalid</div>
+
+            </div>
+        </fieldset><br>
+        <fieldset class="border p-2 w-100">
+            <legend>Password</legend>
+            <input type="password" class="no-outline" name="psw" required #pwd="ngModel" [(ngModel)]="user.userPass"
+                id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                placeholder=" Enter password" name="password" style="width:300px; height: 40px;">
+
+            <div *ngIf="pwd.invalid &&(pwd.dirty||pwd.touched)" style="color: red;">
+                <div *ngIf="pwd.errors?.required">Password required</div>
+                <div *ngIf="pwd.errors?.pattern">Password is invalid</div>
+
+            </div>
+
+        </fieldset>
+        <br><br>
+        <div class="checkbox" style="padding-left: 80px;">
+            <label style="font-size: 15px; color: #0347F7;"><input type="checkbox" name="remember"> REMEMBER ME
+            </label>
+        </div><br><br>
+        <div style="color: #0347F7;padding-left: 55px;font-size: 20px;"> FORGOT PASSWORD?</div><br><br>
+        <div>
+            <input type="radio" id="admin" name="admin" value="admin">
+            <label for="admin" style="color: #0347F7; font-size: 12px;margin-right: 3%;">ADMIN</label>
+            &nbsp;&nbsp;
+            <input type="radio" id="user" name="user" value="user">
+            <label style="color: #0347F7;" for="user">USER</label>
+        </div>
+        <br><br><br>
+        <button style="width: 300px;" type="submit" id="btn1" class="btn btn-default">Submit</button>
+
+    </form>
+    <!-- <form action="/action_page.php">
+                <div class="form-group">
+                    <label for="email" style=" color: #0347F7;font-size: 20px;">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
+                        style="width:300px; height: 40px;">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="pwd" style=" color: #0347F7;font-size: 20px;">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd"
+                        style="width:300px; height: 40px;">
+                </div>
+                <br>
+                <div class="checkbox" style="padding-left: 80px;">
+                    <label style="font-size: 15px; color: #0347F7;"><input type="checkbox" name="remember"> Remember
+                        me</label>
+                </div>
+                <br> <br>
+                <div style="color: #0347F7;padding-left: 80px;font-size: 20px;"> Forgot Password?</div><br>
+                <input type="radio" style="padding-left: 0px;" id="admin" name="admin" value="admin">
+                <label for="admin" style="color: #0347F7; font-size: 12px;padding-left: 0px;padding-right: 40px;display: inline-block;
+                    vertical-align: top;
+                    margin-right: 3%;">ADMIN</label>
+                <input style="padding-left: 60px;padding-right: 60px;display: inline-block;
+                        vertical-align: top;" type="radio" id="user" name="user" value="user">
+                <label style="color: #0347F7;font-size: 12px;padding-left: 10px;padding-right: 40px; display: inline-block;
+                        vertical-align: top;
+                        margin-right: 3%;" for="user">USER</label>
+
+                <br><br>
+                <button style="width: 300px;" type="submit" id="btn1" class="btn btn-default">Submit</button>
+
+            </form> -->

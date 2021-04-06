@@ -1,0 +1,73 @@
+<div class="header">
+    <div class="inner_header">
+        <div class="logo_container">
+            <h1>emi<span>PAY</span>lelo</h1>
+        </div>
+        <ul class="navigation">
+            <a>
+                <li>Orders</li>
+            </a>
+            <a>
+                <li>Transactions</li>
+            </a>
+            <a>
+                <li>Log Out</li>
+            </a>
+        </ul>
+    </div>
+</div>
+
+<div class=pay_now>
+    Upcoming Installment - 26500
+    <div class=button>
+        <button style="margin-top:-60px;background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
+            type="button">
+            Pay Now
+        </button>
+    </div>
+</div>
+
+<div class="transaction">
+    Transactions
+</div>
+
+<div class="card">
+    **** **** **** **42
+    <div class=exp_date>
+        07/25
+        <div class=cvv>
+            101
+            <div class=card_name>
+                PANKAJ CHANDGUDE
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card1">
+    Remaining Credit - ₹23,500
+</div>
+
+<div class="card2">
+    Payment Due - ₹26,500
+</div>
+
+<table class="content-table">
+    <thead>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transact of transactions">
+            <td>{{transact.transactionId}}</td>
+            <td>{{transact.transactionDate}}</td>
+            <td>{{transact.productName}}</td>
+            <td>{{transact.amount}}</td>
+        </tr>
+
+
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+<header>
+    emiPAYlelo
+    <button style="font-size: 15px;" class="btn  float-right " type="submit">
+        Logout
+    </button>
+</header>
+<!-- <div style="color:green;font-size: larger;width: 30px;height: 30px;">{{cardSelected}}</div> -->
+<br><br><br><br>
+<div class="cselection">CARD SELECTION<br></div>
+<br>
+<!-- <div style="color:green;font-size: larger;width: 30px;height: 30px;">{{cardSelected}}</div> -->
+
+<div class="grid-container">
+
+
+    <div class="card">
+
+        {{cards[0].cardType}}
+        <div style="font-size: 20PX; line-height: 50px;">TOTAL CREDIT - {{cards[0].totalCredit}} <br> JOINING FEE -
+            {{cards[0].joiningFee}}</div>
+    </div>
+
+    <div class="card2">
+        {{cards[1].cardType}}
+        <br>
+
+        <div style="font-size: 20PX; line-height: 50px;">TOTAL CREDIT - {{cards[1].totalCredit}}<br> JOINING FEE -
+            {{cards[1].joiningFee}}</div>
+
+        <!-- <div style="font-size: 20PX;">JOINING FEE - 1000 </div> -->
+
+    </div>
+
+
+
+    <button style="width: 150px; height:30px;" class="selectgold" type="submit" (click)="goldSelected()">Select
+        Gold</button>
+    <button style="width: 150px; height:30px;" class="selecttitanium" type="submit" (click)="titaniumSelected()">Select
+        Titanium</button>
+
+</div>

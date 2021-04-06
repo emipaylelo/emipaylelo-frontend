@@ -1,0 +1,118 @@
+<div class="header">
+    <div class="inner_header">
+        <div class="logo_container">
+            <h1>emi<span>PAY</span>lelo</h1>
+        </div>
+        <ul class="navigation">
+            <a>
+                <li>Orders</li>
+            </a>
+            <a>
+                <li>Transactions</li>
+            </a>
+            <a>
+                <li>Log Out</li>
+            </a>
+        </ul>
+    </div>
+</div>
+
+<div class="T_users">
+    <div class=text>
+        Total Users
+        <div class="No_users">
+            23,500
+        </div>
+    </div>
+</div>
+
+<div class="T_join">
+    <div class=text1>
+        Total Joining Fee Collected
+        <div class="No_money">
+            ₹2,03,500
+        </div>
+    </div>
+</div>
+
+<div class="paym_due">
+    <div class=text2>
+        Payment Due
+        <div class="amt">
+            ₹26,500
+        </div>
+    </div>
+</div>
+
+<div class="G_users">
+    <div class=text3>
+        Gold Users
+        <div class="No_G_users">
+            13,500
+        </div>
+    </div>
+</div>
+
+<div class="Tit_users">
+    <div class=text4>
+        Titanium Users
+        <div class="No_Tit_users">
+            10,000
+        </div>
+    </div>
+</div>
+
+<div class="Users">
+    Users
+</div>
+
+<table class="content-table">
+    <thead>
+        <tr>
+            <th align="center">User Id</th>
+            <th align="center">Name</th>
+            <th align="center">Card Type</th>
+            <th align="center">Documents</th>
+            <th align="center">Verification Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+
+            <td>{{user.userId}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.cardType}}</td>
+            <td>
+                <div class=button>
+                    <button style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
+                        type="button" (click)="aadhar(user.userId)">
+                        AADHAR
+                    </button> &nbsp;
+                    <button style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
+                        type="button" (click)="pan(user.userId)">
+                        PAN
+                    </button>
+                    <br>
+                    <img src={{user.documentAadhar}} width=" 30px"
+                        height="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src={{user.documentPan}} width="30px" height="30px">
+                </div>
+            </td>
+            <td> <button style="background-color:green;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
+                    type="button" (click)="setVerification(user.userId)">
+                    &#10003;
+                </button>&nbsp;
+                <br>
+                <h5>{{user.verify}}</h5>
+                <!-- {{user.verificationStatus}} -->
+                <button style="background-color:red;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
+                    type="button">
+                    X
+                </button>
+            </td>
+
+        </tr>
+
+
+    </tbody>
+</table>

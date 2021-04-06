@@ -1,0 +1,167 @@
+ @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+ *, html, body {
+     margin: 0%;
+     font-size: 10px;
+     font-family: 'Karla', sans-serif;
+ }
+
+ div {
+     font-family: 'Karla', sans-serif;
+ }
+
+ header {
+     position: relative;
+     background-color: #0347F7;
+     height: 80px;
+     width: 100%;
+     padding: 3rem 3rem;
+     font-size: x-large;
+     color: white;
+     text-shadow: 3px;
+ }
+
+ body {
+     position: relative;
+ }
+
+ #headerContent {
+     margin: 0 auto;
+     width: 960px;
+ }
+
+ .btn {
+     background-color: transparent;
+     color: white;
+     text-decoration: underline;
+     text-decoration-color: white;
+     font-size: 20px;
+     padding: 100px;
+     margin-top: 0px;
+ }
+ 
+ .select {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+   
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 155px;
+    margin-left: 325px;
+    margin-bottom: 100px;
+    color: white;
+    background-color: #0347F7;
+    font-size: 15px;
+    border-top: 30px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;    
+    line-height: 20px;
+}
+
+ .grid-container {
+    /*grid-template-columns: 100px 500px 700px 0px;
+     grid-gap: 10px;*/
+     padding-top: 450px;
+     border: 1px solid #0347F7;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 60%;
+     height: 500px;
+     border-radius: 25px;
+     
+     
+ }
+ .cardselection {
+     font-size: 30px;
+     color: #0347F7; 
+     text-align:center;
+     font-weight: 650; 
+     vertical-align: top;
+     width: -100px;
+     margin-left: auto;
+     margin-right: auto;
+     line-height: 40px;
+     padding-left:10px;
+     top: 100px;
+     left: 10px;
+    
+
+     
+ }
+
+ #btn1 {
+     color: white;
+     background-color: #0347F7;
+     font-size: 15px;
+     border-top: 30px;
+     border-top-left-radius: 25px;
+     border-top-right-radius: 25px;
+     border-bottom-right-radius: 25px;
+     border-bottom-left-radius: 25px;
+ }
+
+ 
+
+ .card {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 95px;
+    width: 350px; 
+    height: 250px; 
+    background-color: #FFB302; 
+    background-image: linear-gradient(to right, orange , yellow);
+    border-radius: 25px;
+    /* border-top-left-radius: 2em 5em;
+    border-top-right-radius: 2em 5em;
+    border-bottom-right-radius: 2em 5em;
+    border-bottom-left-radius: 2em 5em */
+    position: static;
+    top: 92%;
+    left: 8%;
+    margin-top: -300px;
+    margin-left: 60px;
+    }
+
+    .card2 {
+        color: white;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+        line-height: 95px;
+        width: 350px; 
+        height: 250px; 
+        background-color:rgb(90, 88, 88); 
+        background-image: linear-gradient(to right, rgb(87, 84, 84), rgb(44, 43, 43));
+        border-radius: 25px;
+        position: static;
+        top: 60%;
+        left: 60%;
+        margin-top: -250px;
+        margin-left: 500px;
+        }
+        .cselection{
+            margin: -20px 650px 20px 700px;
+              font-size: 30px;
+     color: #0347F7; 
+     text-align:center;
+     font-weight: 650; 
+       vertical-align: top;
+        }
+        .selectgold{
+                margin: 40px 30px -80px 150px;
+             color: white;
+    background-color: #0347F7;
+    text-decoration: none;
+        }
+        .selecttitanium{
+margin: 10px -100px -10px 265px;
+color: white;
+    background-color: #0347F7;
+    text-decoration: none;
+        
+        }
