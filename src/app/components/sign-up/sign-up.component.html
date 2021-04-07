@@ -7,13 +7,13 @@
         <div class="double_input_wrapper">
             <div class="input_wrapper">
                 <label for="name">Name</label>
-            <input type="text" #em="ngModel" required placeholder="" name="name"
-                [(ngModel)]="user.userEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-                >
-            <div *ngIf="em.invalid &&(em.dirty||em.touched)" style="color: red;">
-                <div *ngIf="em.errors?.required">Email required</div>
-                <div *ngIf="em.errors?.pattern">Email is invalid</div>
-            </div>
+                <input type="text" #em="ngModel" required placeholder="" name="name"
+                    [(ngModel)]="user.userEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                    >
+                <div *ngIf="em.invalid &&(em.dirty||em.touched)" style="color: red;">
+                    <div *ngIf="em.errors?.required">Email required</div>
+                    <div *ngIf="em.errors?.pattern">Email is invalid</div>
+                </div>
             </div>
             <div class="input_wrapper">
                 <label for="mobile">Mobile</label>
