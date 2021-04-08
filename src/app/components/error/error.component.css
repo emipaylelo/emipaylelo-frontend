@@ -70,3 +70,25 @@
      margin-top: -100px;
      margin-left: -100px;
  }
+
+ .error_svg {
+     width: 25rem;
+     height: 25rem;
+     align-self: center;
+     justify-self: center;
+ }
+
+  #icon404 {
+     fill: #0347F7;
+ }
+
+ .title_404{
+    font-size: 4rem;
+    color: red;
+    text-align: center;
+
+ }
+
+ .error{
+     grid-template-rows: 7fr 1fr 1fr;
+ }

@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <div class="inner_header">
         <div class="logo_container">
             <h1>emi<span>PAY</span>lelo</h1>
@@ -15,9 +15,117 @@
             </a>
         </ul>
     </div>
-</div>
+</div> -->
+<div class="dashboard_grid">
+    <div class="stats_column">
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Total Users
+            </h3>
+            <h2 class="stats_count">
+                23,500
+            </h2>
+        </div>
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Total Joining Fee Collected
+            </h3>
+            <h2 class="stats_count">
+                ₹ 2,03,500
+            </h2>
+        </div>
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Payment Due
+            </h3>
+            <h2 class="stats_count">
+                ₹ 26,500
+            </h2>
+        </div>
+    </div>
+    <div class="more_details_column">
+        <div class="double_column">
+            <div class="stats_container">
+                <h3 class="stats_title">
+                    Gold Users
+                </h3>
+                <h2 class="stats_count">
+                    13,500
+                </h2>
+            </div>
+            <div class="stats_container">
+                <h3 class="stats_title">
+                    Titanium Users
+                </h3>
+                <h2 class="stats_count">
+                    10,000
+                </h2>
+            </div>
+        </div>
+        <div class="single_column">
+            <h3 class="page_title">
+                Users
+            </h3>
+            <div class="users_details_container">
+                <table class="users_details table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="table_header_title">User Id</th>
+                            <th class="table_header_title">Name</th>
+                            <th class="table_header_title">Card Type</th>
+                            <th class="table_header_title">Documents</th>
+                            <th class="table_header_title">Verification Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
 
-<div class="T_users">
+                            <td class="table_header_data_value">{{user.userId}}</td>
+                            <td class="table_header_data_value">{{user.name}}</td>
+                            <td class="table_header_data_value">{{user.cardType}}</td>
+                            <td>
+                                <div class="document_buttons_container">
+                                    <button id="aadhar_button" class="document_button" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="aadhar(user.userId)">
+                                        AADHAR
+                                    </button>
+                                    <button id="pan_button" class="document_button" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="pan(user.userId)">
+                                        PAN
+                                    </button>
+                                    <!-- <img src={{user.documentAadhar}} width=" 30px" height="30px">
+                                    <img src={{user.documentPan}} width="30px" height="30px"> -->
+                                </div>
+                            </td>
+                            <td> 
+                                <div class="document_buttons_container verification_buttons_container">
+                                    <button  class="document_button verify_button"  style="background-color:green;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
+                                    type="button" (click)="setVerification(user.userId)">
+                                        &#10003;
+                                    </button>
+                                    <!-- <h5>{{user.verify}}</h5> -->
+                                    <!-- {{user.verificationStatus}} -->
+                                    <button  class="document_button verify_button"  style="background-color:red;border-radius: 15px 15px 15px 15px;color: white;width: 50px;" type="button">
+                                        X
+                                    </button>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- <tfoot>
+                        <tr>
+                            <th class="table_header_title">User Id</th>
+                            <th class="table_header_title">Name</th>
+                            <th class="table_header_title">Card Type</th>
+                            <th class="table_header_title">Documents</th>
+                            <th class="table_header_title">Verification Status</th>
+                        </tr>
+                    </tfoot> -->
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="T_users">
     <div class=text>
         Total Users
         <div class="No_users">
@@ -42,8 +150,8 @@
             ₹26,500
         </div>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <div class="G_users">
     <div class=text3>
         Gold Users
@@ -60,8 +168,8 @@
             10,000
         </div>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <div class="Users">
     Users
 </div>
@@ -104,7 +212,7 @@
                 </button>&nbsp;
                 <br>
                 <h5>{{user.verify}}</h5>
-                <!-- {{user.verificationStatus}} -->
+                {{user.verificationStatus}}
                 <button style="background-color:red;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
                     type="button">
                     X
@@ -115,4 +223,4 @@
 
 
     </tbody>
-</table>
+</table> -->
