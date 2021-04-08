@@ -147,6 +147,11 @@ input[type="text"], input[type="email"], input[type="password"]{
     font-size: 15px;       
     transition: .3s all;
     text-transform: uppercase;
+    max-height: 4rem;
+    min-height: 4rem;
+    padding: 1rem 4rem;
+    align-self: center;
+    justify-self: center;
   }
   
   #btn1:hover{

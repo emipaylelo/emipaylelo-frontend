@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+ /* @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
  *, html, body {
      margin: 0%;
      font-size: 10px;
@@ -61,8 +61,8 @@
 }
 
  .grid-container {
-    /*grid-template-columns: 100px 500px 700px 0px;
-     grid-gap: 10px;*/
+    grid-template-columns: 100px 500px 700px 0px;
+     grid-gap: 10px;
      padding-top: 450px;
      border: 1px solid #0347F7;
      display: block;
@@ -116,10 +116,10 @@
     background-color: #FFB302; 
     background-image: linear-gradient(to right, orange , yellow);
     border-radius: 25px;
-    /* border-top-left-radius: 2em 5em;
+    border-top-left-radius: 2em 5em;
     border-top-right-radius: 2em 5em;
     border-bottom-right-radius: 2em 5em;
-    border-bottom-left-radius: 2em 5em */
+    border-bottom-left-radius: 2em 5em
     position: static;
     top: 92%;
     left: 8%;
@@ -164,4 +164,67 @@ color: white;
     background-color: #0347F7;
     text-decoration: none;
         
-        }
+        } */
+
+.card_selection{
+    width: 85rem;
+    height: 35rem;
+}
+
+.cards_container{
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    padding: 1rem;
+}
+
+.card_container{
+    position: relative;
+    border-radius: .5rem;
+}
+
+.card_container .card_label{
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    top: 0%;
+    left: 0%;
+}
+
+.card_input {
+    position: absolute;
+    opacity: 0;
+}
+
+.card{
+    display: grid;
+    grid-gap: 1.5rem;
+    padding: 5rem;
+    margin: .1rem;
+    grid-template-columns: 1fr;
+    border-radius: .5rem;
+    
+}
+
+.gold_card{
+    background-image: linear-gradient(to right bottom, #ffb502, #fed901);
+}
+.titanium_card{
+    background-image: linear-gradient(to right bottom, #899197, #596266);
+}
+
+.card_type_title, .card_type_credit_limit, .card_type_joining_fee{
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.cards_container input[type="radio"]:checked + .card_container{
+    border: 2px solid #0347F7;
+} 
