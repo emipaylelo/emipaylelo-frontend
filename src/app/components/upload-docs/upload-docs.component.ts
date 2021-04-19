@@ -22,8 +22,8 @@ export class UploadDocsComponent implements OnInit {
   ngOnInit(): void {
   }
   setUserDocumentDetails(docDetailForm: NgForm) {
-    this.uploadData.append("aadharFile", this.aadharFile);
-    this.uploadData.append("panFile", this.panFile);
+    this.uploadData.append("aadharFile", this.aadharFile, 'aadhar.jpg');
+    this.uploadData.append("panFile", this.panFile, 'pan.jpg');
     this.uploadData.append("aadharNo", this.uploadDocs.aadharNo);
     this.uploadData.append("panNo", this.uploadDocs.panNo);
 
