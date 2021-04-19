@@ -28,6 +28,7 @@ export class SignUpComponent implements OnInit {
 
 
   ngOnInit(): void {
+    localStorage.clear();
   }
   // checkRegister(registerForm: NgForm) {
   //   if (registerForm.valid) {

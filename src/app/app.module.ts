@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,8 @@ import { CardSelectionComponent } from './components/card-selection/card-selecti
 import { BankDetailsComponent } from './components/bank-details/bank-details.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ModalModule } from 'ngb-modal';
+import { ShoppingPageComponent } from './components/shopping-page/shopping-page.component';
 
 
 
@@ -35,13 +39,15 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     BankDetailsComponent,
     AdminDashboardComponent,
     FileUploadComponent,
+    ShoppingPageComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

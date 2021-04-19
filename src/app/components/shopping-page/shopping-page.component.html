@@ -1,0 +1,406 @@
+<div class='container-fluid'>
+
+    <div class='col-12'>
+        <ngb-carousel>
+
+            <ng-template ngbSlide>
+                <img src="../../../assets/shoppcs.JPG" alt="Random fourth slide">
+                <div class="carousel-caption">
+                    <h3>And no wrap after last slide.</h3>
+                    <p>This carousel uses customized default values.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img src="../../../assets/coolingproducts.JPG" alt="Random second slide">
+                <div class="carousel-caption">
+                    <h3>No mouse events...</h3>
+                    <p>This carousel doesn't pause or resume on mouse events</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img src="../../../assets/headphones.JPG" alt="Random third slide">
+                <div class="carousel-caption">
+                    <h3>No keyboard...</h3>
+                    <p>This carousel uses customized default values.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img src="../../../assets/samsungproducts.JPG" alt="Random fourth slide">
+                <div class="carousel-caption">
+                    <h3>And no wrap after last slide.</h3>
+                    <p>This carousel uses customized default values.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img src="../../../assets/shoppcs.JPG" alt="Random fourth slide">
+                <div class="carousel-caption">
+                    <h3>And no wrap after last slide.</h3>
+                    <p>This carousel uses customized default values.</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+</div>
+
+<!-- <div>
+    <table>
+        <tr>
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </td>
+            &nbsp;
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </td>
+            &nbsp;
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div> -->
+
+<br><br><br><br>
+<div style="text-align: center;color: #0347F7;">
+    <h1><u>MOBILES</u></h1>
+</div>
+<br><br>
+<ul style="margin-left: 45px;">
+    <div class="row">
+
+        <li *ngFor="let mobiles of mobiles1; let indexOfelement=index;" style="margin-left: 40px;">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{mobiles.imgsrc}} alt="Card image cap" height="200px">
+                <div class="card-body">
+
+                    <div class="card-text">Product: {{mobiles.productName}}<br>
+                        Price: <s [ngStyle]="{color: 'red'}">{{mobiles.actualPrice| currency:'INR'}} </s>&nbsp; &nbsp;<p
+                            [ngStyle]="{color: 'green'}">{{mobiles.discountedPrice|
+                            currency:'INR'}}</p>
+                    </div>
+                    <a href="#" (click)="open(mymobiles)" class="btn btn-primary" style="margin-right: 20px;">Product
+                        Details</a>
+                    <ng-template #mymobiles let-modal>
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'green'}">
+                                Product
+                                {{mobiles.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}">{{mobiles.productDetails}}</p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
+                    <a href="#" (click)="open(paynow)" class="btn btn-success">Buy Now</a>
+                    <ng-template #paynow let-modal>
+                        <div class="modal-header" style="margin-left: 10px;"><br>
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'blue'}">
+                                Product
+                                {{mobiles.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>&nbsp; &nbsp;
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}" style="margin-left:10px;">{{mobiles.productName}}<br><br>
+
+                                <img src={{mobiles.imgsrc}} style="width: 90px;height: 100px;">
+                            <div [ngStyle]="{color: 'red'}" style="margin-left:10px;"><br>
+                                <p [ngStyle]="{color: 'blue'}">Amount to be paid :</p>
+                                {{mobiles.discountedPrice | currency:'INR'}}
+                            </div>
+                            <button type="submit" (click)="payMoney(indexOfelement)" class="btn btn-success"
+                                style="width: 200px; margin-left: 145px;">Confirm
+                                Payment</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div style="margin-right: 90px;" [ngStyle]="{color: 'green'}">{{mobiles.paymentSuccess}}
+                            </div>
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+    </div>
+</ul>
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<br><br><br><br>
+<div id="title" style="text-align: center;color: #0347F7;">
+    <h1><u>WASHING MACHINE</u></h1>
+</div>
+<br><br>
+<ul style="margin-left: 45px;">
+
+    <div class="row">
+
+        <li *ngFor="let wc of washingMachines; let indexOfelement=index;" style="margin-left: 40px;">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{wc.imgsrc}} alt="Card image cap" height="200px">
+                <div class="card-body">
+
+                    <div class="card-text">Product: {{wc.productName}}<br>
+                        Price: <s [ngStyle]="{color: 'red'}">{{wc.actualPrice| currency:'INR'}} </s>&nbsp; &nbsp;<p
+                            [ngStyle]="{color: 'green'}">{{wc.discountedPrice|
+                            currency:'INR'}}</p>
+                    </div>
+                    <a href="#" (click)="open(mywashingmachine)" class="btn btn-primary"
+                        style="margin-right: 20px;">Product Details</a>
+                    <ng-template #mywashingmachine let-modal>
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'green'}">
+                                Product:
+                                {{wc.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}">{{wc.productDetails}}</p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
+                    <a href="#" (click)="open(paynow)" class="btn btn-success">Buy Now</a>
+                    <ng-template #paynow let-modal>
+                        <div class="modal-header" style="margin-left: 10px;"><br>
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'blue'}">
+                                Product
+                                {{wc.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>&nbsp; &nbsp;
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}" style="margin-left:10px;">{{wc.productName}}<br><br>
+
+                                <img src={{wc.imgsrc}} style="width: 90px;height: 100px;">
+                            <div [ngStyle]="{color: 'red'}" style="margin-left:10px;"><br>
+                                <p [ngStyle]="{color: 'blue'}">Amount to be paid :</p>
+                                {{wc.discountedPrice | currency:'INR'}}
+                            </div>
+                            <button type="submit" (click)="payMoneyWC(indexOfelement)" class="btn btn-success"
+                                style="width: 200px; margin-left: 145px;">Confirm
+                                Payment</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div style="margin-right: 90px;" [ngStyle]="{color: 'green'}">{{wc.paymentSuccess}}
+                            </div>
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+    </div>
+</ul>
+<br><br><br><br>
+<div style="text-align: center;color: #0347F7;">
+    <h1><u>MOBILES</u></h1>
+</div>
+<br><br>
+<ul style="margin-left: 45px;">
+    <div class="row">
+
+        <li *ngFor="let mobiles of mobiles1; let indexOfelement=index;" style="margin-left: 40px;">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{mobiles.imgsrc}} alt="Card image cap" height="200px">
+                <div class="card-body">
+
+                    <div class="card-text">Product: {{mobiles.productName}}<br>
+                        Price: <s [ngStyle]="{color: 'red'}">{{mobiles.actualPrice| currency:'INR'}} </s>&nbsp; &nbsp;<p
+                            [ngStyle]="{color: 'green'}">{{mobiles.discountedPrice|
+                            currency:'INR'}}</p>
+                    </div>
+                    <a href="#" (click)="open(mymobiles)" class="btn btn-primary" style="margin-right: 20px;">Product
+                        Details</a>
+                    <ng-template #mymobiles let-modal>
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'green'}">
+                                Product
+                                {{mobiles.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}">{{mobiles.productDetails}}</p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
+                    <a href="#" (click)="open(paynow)" class="btn btn-success">Buy Now</a>
+                    <ng-template #paynow let-modal>
+                        <div class="modal-header" style="margin-left: 10px;"><br>
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'blue'}">
+                                Product
+                                {{mobiles.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>&nbsp; &nbsp;
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}" style="margin-left:10px;">{{mobiles.productName}}<br><br>
+
+                                <img src={{mobiles.imgsrc}} style="width: 90px;height: 100px;">
+                            <div [ngStyle]="{color: 'red'}" style="margin-left:10px;"><br>
+                                <p [ngStyle]="{color: 'blue'}">Amount to be paid :</p>
+                                {{mobiles.discountedPrice | currency:'INR'}}
+                            </div>
+                            <button type="submit" (click)="payMoney(indexOfelement)" class="btn btn-success"
+                                style="width: 200px; margin-left: 145px;">Confirm
+                                Payment</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div style="margin-right: 90px;" [ngStyle]="{color: 'green'}">{{mobiles.paymentSuccess}}
+                            </div>
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+    </div>
+</ul>
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<br><br><br><br>
+<div id="title" style="text-align: center;color: #0347F7;">
+    <h1><u>WASHING MACHINE</u></h1>
+</div>
+<br><br>
+<ul style="margin-left: 45px;">
+
+    <div class="row">
+
+        <li *ngFor="let wc of washingMachines; let indexOfelement=index;" style="margin-left: 40px;">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{wc.imgsrc}} alt="Card image cap" height="200px">
+                <div class="card-body">
+
+                    <div class="card-text">Product: {{wc.productName}}<br>
+                        Price: <s [ngStyle]="{color: 'red'}">{{wc.actualPrice| currency:'INR'}} </s>&nbsp; &nbsp;<p
+                            [ngStyle]="{color: 'green'}">{{wc.discountedPrice|
+                            currency:'INR'}}</p>
+                    </div>
+                    <a href="#" (click)="open(mywashingmachine)" class="btn btn-primary"
+                        style="margin-right: 20px;">Product Details</a>
+                    <ng-template #mywashingmachine let-modal>
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'green'}">
+                                Product:
+                                {{wc.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}">{{wc.productDetails}}</p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
+                    <a href="#" (click)="open(paynow)" class="btn btn-success">Buy Now</a>
+                    <ng-template #paynow let-modal>
+                        <div class="modal-header" style="margin-left: 10px;"><br>
+                            <h2 class="modal-title" id="modal-basic-title" [ngStyle]="{color: 'blue'}">
+                                Product
+                                {{wc.productName}}</h2>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>&nbsp; &nbsp;
+                        </div>
+                        <div class="modal-body">
+                            <p [ngStyle]="{color: 'blue'}" style="margin-left:10px;">{{wc.productName}}<br><br>
+
+                                <img src={{wc.imgsrc}} style="width: 90px;height: 100px;">
+                            <div [ngStyle]="{color: 'red'}" style="margin-left:10px;"><br>
+                                <p [ngStyle]="{color: 'blue'}">Amount to be paid :</p>
+                                {{wc.discountedPrice | currency:'INR'}}
+                            </div>
+                            <button type="submit" (click)="payMoneyWC(indexOfelement)" class="btn btn-success"
+                                style="width: 200px; margin-left: 145px;">Confirm
+                                Payment</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div style="margin-right: 90px;" [ngStyle]="{color: 'green'}">{{wc.paymentSuccess}}
+                            </div>
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+    </div>
+</ul><br>
