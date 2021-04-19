@@ -173,3 +173,10 @@ h3{
 .header_menu_item_link:hover{
   color: white;
 }
+
+.header_menu{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
+  grid-gap: 5rem;
+}

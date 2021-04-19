@@ -17,6 +17,8 @@ import { CardSelectionComponent } from './components/card-selection/card-selecti
 import { BankDetailsComponent } from './components/bank-details/bank-details.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
 
 
 
@@ -35,7 +37,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     BankDetailsComponent,
     AdminDashboardComponent,
     FileUploadComponent,
-
+    ProfileDetailsComponent,
+    NavbarComponentComponent
   ],
   imports: [
     BrowserModule,
