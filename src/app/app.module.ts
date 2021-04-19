@@ -19,13 +19,10 @@ import { CardSelectionComponent } from './components/card-selection/card-selecti
 import { BankDetailsComponent } from './components/bank-details/bank-details.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-<<<<<<< HEAD
 import { ModalModule } from 'ngb-modal';
 import { ShoppingPageComponent } from './components/shopping-page/shopping-page.component';
-=======
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
->>>>>>> 22c3aad3e40a6b3722cd326c6c69e7207886eeec
 
 
 
@@ -44,13 +41,10 @@ import { NavbarComponentComponent } from './components/navbar-component/navbar-c
     BankDetailsComponent,
     AdminDashboardComponent,
     FileUploadComponent,
-<<<<<<< HEAD
     ShoppingPageComponent,
 
-=======
     ProfileDetailsComponent,
     NavbarComponentComponent
->>>>>>> 22c3aad3e40a6b3722cd326c6c69e7207886eeec
   ],
   imports: [
     BrowserModule,
