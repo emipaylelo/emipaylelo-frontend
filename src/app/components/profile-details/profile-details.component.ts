@@ -4,6 +4,7 @@ import { User } from 'src/app/Models/users';
 import { IfscService } from 'src/app/components/bank-details/ifsc-service';
 import { Card } from 'src/app/Models/card';
 import { CardType } from 'src/app/Models/card-type';
+import { CardTypeEnum } from 'src/app/Models/card-type-enum';
 
 @Component({
   selector: 'app-profile-details',
@@ -17,11 +18,18 @@ export class ProfileDetailsComponent implements OnInit {
   // cardType:CardType = this.card.cardType;
   dueAmount:number;
   confirmPassword:string;
-  
+  userVerificationStatus:string;
+  cardType:string = 'gold';
 
   constructor(private ifscservice: IfscService) { }
 
   ngOnInit(): void {
+    console.log(this.cardType);
+    if(this.user.isApproved) {
+      this.userVerificationStatus = 'Verified';
+    } else {
+      this.userVerificationStatus = 'Not Verified';
+    }
   }
 
 

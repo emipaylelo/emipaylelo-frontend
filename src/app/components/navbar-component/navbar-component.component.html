@@ -11,22 +11,22 @@
             <ul class="header_menu">
 
                 <li class="header_menu_item" *ngIf="isUserOnSignUpPage()"> 
-                    <a href="#" class="header_menu_item_link">Login</a>
+                    <a routerLink="login" class="header_menu_item_link">Login</a>
                 </li>
                 <li class="header_menu_item" *ngIf="isUserLoggedIn()"> 
-                    <a href="#" class="header_menu_item_link">Orders</a>
+                    <a routerLink="orders" class="header_menu_item_link">Orders</a>
                 </li>
                 <li class="header_menu_item" *ngIf="isUserLoggedIn()"> 
-                    <a href="#" class="header_menu_item_link">Transactions</a>
+                    <a routerLink="transactions" class="header_menu_item_link">Transactions</a>
                 </li>
                 <li class="header_menu_item" *ngIf="isUserLoggedIn()"> 
-                    <a href="#" class="header_menu_item_link">Profile</a>
+                    <a routerLink="profiledetails" class="header_menu_item_link">Profile</a>
                 </li>
                 <li class="header_menu_item" *ngIf="isUserLoggedIn() || isAdminLoggedIn()"> 
-                    <a href="#" class="header_menu_item_link">Logout</a>
+                    <a routerLink="login" class="header_menu_item_link">Logout</a>
                 </li>
                 <li class="header_menu_item" *ngIf="isUserOnLoginPage() && !isUserLoggedIn()"> 
-                    <a href="#" class="header_menu_item_link">Sign Up</a>
+                    <a routerLink="signup" class="header_menu_item_link">Sign Up</a>
                 </li>
             </ul>
         </nav>
