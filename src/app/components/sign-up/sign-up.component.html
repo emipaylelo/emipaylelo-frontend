@@ -3,34 +3,30 @@
 
 
 
-    <form #registerForm="ngForm" (ngSubmit)="checkRegister(registerForm)" class="form_class">
+    <form #registerForm="ngForm" (ngSubmit)="login(registerForm)" class="form_class">
         <div class="double_input_wrapper">
             <div class="input_wrapper">
                 <label for="name">Name</label>
-                <input type="text" #em="ngModel" required placeholder="" name="name"
-                    [(ngModel)]="user.userEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-                    >
-                <div *ngIf="em.invalid &&(em.dirty||em.touched)" style="color: red;">
-                    <div *ngIf="em.errors?.required">Email required</div>
-                    <div *ngIf="em.errors?.pattern">Email is invalid</div>
+                <input type="text" #nm="ngModel" required placeholder="" name="name" [(ngModel)]="user.userName">
+                <div *ngIf="nm.invalid &&(nm.dirty||nm.touched)" style="color: red;">
+                    <div *ngIf="nm.errors?.required">Name required</div>
+                    <div *ngIf="nm.errors?.pattern">Name is invalid</div>
                 </div>
             </div>
             <div class="input_wrapper">
                 <label for="mobile">Mobile</label>
-                <input type="text" #em="ngModel" required placeholder="" name="mobile"
-                    [(ngModel)]="user.userEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-                    >
-                <div *ngIf="em.invalid &&(em.dirty||em.touched)" style="color: red;">
-                    <div *ngIf="em.errors?.required">Email required</div>
-                    <div *ngIf="em.errors?.pattern">Email is invalid</div>
+                <input type="text" #mob="ngModel" required placeholder="" name="mobile" [(ngModel)]="user.userMobileNo"
+                    minlength=0 maxlength=10 pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$">
+                <div *ngIf="mob.invalid &&(mob.dirty||mob.touched)" style="color: red;">
+                    <div *ngIf="mob.errors?.required">Mobile number is required</div>
+                    <div *ngIf="mob.errors?.pattern">Mobile number is invalid</div>
                 </div>
             </div>
         </div>
         <div class="input_wrapper">
             <label for="email">Email</label>
-            <input type="email" #em="ngModel" required placeholder="" name="email"
-                [(ngModel)]="user.userEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-                >
+            <input type="email" #em="ngModel" required placeholder="" name="email" [(ngModel)]="user.userEmail"
+                pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
             <div *ngIf="em.invalid &&(em.dirty||em.touched)" style="color: red;">
                 <div *ngIf="em.errors?.required">Email required</div>
                 <div *ngIf="em.errors?.pattern">Email is invalid</div>
@@ -39,9 +35,8 @@
         <div class="input_wrapper">
             <label for="psw">Password</label>
             <input type="password" placeholder="Enter Password" name="psw" required #pwd="ngModel"
-            [(ngModel)]="user.userPass"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-            >
+                [(ngModel)]="user.userPassword"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
             <div *ngIf="pwd.invalid &&(pwd.dirty||pwd.touched)" style="color: red;">
                 <div *ngIf="pwd.errors?.required">Password required</div>
                 <div *ngIf="pwd.errors?.pattern">Password is invalid</div>
@@ -53,21 +48,23 @@
             <i class="far fa-eye" id="togglePassword"></i>
             
         </fieldset> -->
-        <div class="input_wrapper">
+        <!-- <div class="input_wrapper">
             <label for="cpsw">Confirm Password</label>
             <input type="password" placeholder="Confirm Password" name="cpsw" required #cpwd="ngModel"
-                [(ngModel)]="user.userCpass"
+                [(ngModel)]="user.userPass"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
             <div *ngIf="cpwd.invalid &&(cpwd.dirty||cpwd.touched)" style="color: red;">
                 <div *ngIf="cpwd.errors?.required">Password required</div>
                 <div *ngIf="cpwd.errors?.pattern">Pattern is invalid</div>
             </div>
-        </div>
+        </div> -->
         <!-- <fieldset class="border p-2 w-100 ">
             <legend>Confirm Password</legend>
             
         </fieldset>
         <br><br><br> -->
-        <button type="submit" id="btn1" class="submit_button btn btn-default">Submit</button>
+        <button type="submit" id="btn1" [disabled]="!registerForm.form.valid"
+            class="submit_button btn btn-default">Submit</button>
+
     </form>
 </div>

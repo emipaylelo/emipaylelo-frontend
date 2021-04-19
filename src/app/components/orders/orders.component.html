@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <div class="inner_header">
         <div class="logo_container">
             <h1>emi<span>PAY</span>lelo</h1>
@@ -15,48 +15,126 @@
             </a>
         </ul>
     </div>
-</div>
-
-<div class="card">
-    **** **** **** **42
-    <div class=exp_date>
-        07/25
-        <div class=cvv>
-            101
-            <div class=card_name>
-                {{order.cardHolderName}}
+</div> -->
+<div class="dashboard_grid">
+    <div class="stats_column">
+        <!-- <div class="card">
+            **** **** **** **42
+            <div class=exp_date>
+                07/25
+                <div class=cvv>
+                    101
+                    <div class=card_name>
+                        {{order.cardHolderName}}
+                    </div>
+                </div>
             </div>
+        </div> -->
+        <div class="card_wrapper">
+            <div class="card gold_card dashboard_card">
+                <div class="double_column double_column_no_padding">
+                    <img src="https://img.icons8.com/plasticine/2x/sim-card-chip.png" alt="card_chip" class="sticker">
+                    <img src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png" alt="card_company" class="card_company_logo">
+                </div>
+                <div class="single_column">
+                    <h3 class="card_number">
+                        **** **** **** 1234
+                    </h3>
+                </div>
+                <div class="double_column double_column_no_padding">
+                    <div class="card_holder_container">
+                        <h4 class="card_holder_name key">
+                            CARD HOLDER
+                        </h4>
+                        <h4 class="card_holder_name value">
+                            {{order.cardHolderName}}
+                        </h4>
+                    </div>
+                    <div class="expiry_container">
+                        <h4 class="card_expiry key">
+                            EXPIRES ON
+                        </h4>
+                        <h4 class="card_expiry value">
+                            01/25
+                        </h4>
+                    </div>
+                </div>
+                <!-- <span class="card_type_title">**** **** **** **42</span>
+                <span class="card_type_credit_limit">TOTAL CREDIT - 101</span>
+                <span class="card_type_joining_fee">{{order.cardHolderName}}</span> -->
+            </div>
+            <label for="gold" class="card_label">
+            </label>
+        </div>
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Remaining Credit
+            </h3>
+            <h2 class="stats_count">
+                ₹ 23,500
+            </h2>
+        </div>
+        
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Payment Due
+            </h3>
+            <h2 class="stats_count">
+                ₹ 26,500
+            </h2>
+        </div>
+    </div>
+    <div class="more_details_column">
+        <div class="single_column">
+            <h3 class="page_title">
+                Orders
+            </h3>
+            <div class="orders_grid">
+                <div class="order_wrapper">
+                    <div class="order_image_wrapper">
+                        <img src="{{product.productImg}}" alt="">
+                    </div>
+                    <div class="order_details_wrapper">
+                        <h3 class="order_number">
+                            #12345
+                        </h3>
+                        <h3 class="order_title">
+                            {{product.productName}}
+                        </h3>
+                        <h3 class="order_amount">
+                            {{product.productPrice}} (5000 + 2000 * 5 Months)
+                        </h3>
+                        <h3 class="order_card">
+                            **** **** **** **42
+                        </h3>
+                        <h3 class="order_date">
+                            02-04-2021
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class=order_card>
+                <img src={{product.productImg}} height="127" width="72">
+                <div class=prod_no>
+                    #12345
+                </div>
+            </div>
+            <div class=mob_name>
+                {{product.productName}}
+            </div>
+            <div class=price>
+                {{product.productPrice}}
+            </div>
+            <div class=install>
+                (5000 + 2000 * 5 Months)
+            </div>
+            <div class=card_no>
+                **** **** **** **42
+            </div>
+            <div class=date>
+                02-04-2021
+            </div> -->
         </div>
     </div>
 </div>
-<div class="card1">
-    Remaining Credit - {{order.remainingCredit}}
-</div>
 
-<div class="card2">
-    Payment Due - ₹26,500
-</div>
-<div class="orders">
-    Orders
-</div>
-<div class=order_card>
-    <img src={{product.productImg}} height="127" width="72">
-    <div class=prod_no>
-        #12345
-    </div>
-</div>
-<div class=mob_name>
-    {{product.productName}}
-</div>
-<div class=price>
-    {{product.productPrice}}
-</div>
-<div class=install>
-    (5000 + 2000 * 5 Months)
-</div>
-<div class=card_no>
-    **** **** **** **42
-</div>
-<div class=date>
-    02-04-2021
-</div>

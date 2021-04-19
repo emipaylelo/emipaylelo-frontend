@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <title></title>
 </head>
+
 <body>
     <header class="header">
         <div class="left">
@@ -23,6 +25,7 @@
         <div class="right">
             <nav class="navigation_menu">
                 <ul class="header_menu">
+
                     <li class="header_menu_item">
                         <a href="#" class="header_menu_item_link">Login</a>
                     </li>
@@ -31,7 +34,7 @@
         </div>
     </header>
     <div class="custom_container">
-        <app-admin-dashboard></app-admin-dashboard>
+        <!-- <app-admin-dashboard></app-admin-dashboard> -->
         <!-- <app-bank-details></app-bank-details> -->
         <!-- <app-card-selection></app-card-selection> -->
         <!-- <app-error></app-error> -->
@@ -39,12 +42,15 @@
         <!-- <app-login></app-login> -->
         <!-- <app-orders></app-orders> -->
         <!-- <app-sign-up></app-sign-up> -->
-         <!-- <app-payment-successful></app-payment-successful> -->
+        <!-- <app-payment-successful></app-payment-successful> -->
         <!-- <app-bank-details></app-bank-details> -->
         <!-- <app-transactions></app-transactions> -->
         <!-- <app-upload-docs></app-upload-docs> -->
         <!-- <app-file-upload></app-file-upload> -->
+        <router-outlet></router-outlet>
     </div>
-    
+
+
 </body>
+
 </html>

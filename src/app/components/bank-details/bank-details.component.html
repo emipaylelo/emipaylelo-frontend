@@ -1,23 +1,19 @@
-
-
 <div class="sign_up login">
     <h3 class="form_heading">BANK DETAILS</h3>
-    
 
 
-    <form #bankForm="ngForm" (ngSubmit)="checkBankDetails(bankForm)" class="form_class">
+
+    <form #bankDetailForm="ngForm" (ngSubmit)="setUserBankDetails(bankDetailForm)" class="form_class">
         <div class="input_wrapper">
             <label for="accountName">Account Holder Name</label>
-            <input type="text" class="no-outline" required #acnm="ngModel" [(ngModel)]="bankdetails.accountHolderName"
-                id="an" placeholder="Enter account holder name" name="accountName">
-            <div *ngIf=" acnm.invalid &&(acnm.dirty||acnm.touched)" style="color: red;">
-                <div *ngIf="acnm.errors?.required">Account Holders Name Required</div>
-            </div>
+            <input type="text" class="no-outline" required id="an" placeholder="Enter account holder name"
+                name="accountName">
+
         </div>
         <div class="input_wrapper">
             <label for="accountNumber">Account Number</label>
-            <input type="text" class="no-outline" required #acno="ngModel" [(ngModel)]="bankdetails.accountNo" id="an"
-                placeholder="Enter account number" name="accountNumber">
+            <input type="number" class="no-outline" required #acno="ngModel" [(ngModel)]="bankDetail.bankAccountNo"
+                id="an" placeholder="Enter account number" name="accountNumber">
             <div *ngIf=" acno.invalid &&(acno.dirty||acno.touched)" style="color: red;">
                 <div *ngIf="acno.errors?.required">Account Number Required</div>
                 <br>
@@ -27,15 +23,17 @@
         <div class="input_wrapper">
             <label for="ifsc">Bank IFSC Code</label>
             <input type="text" class="no-outline" required (input)="getBankName($event.target)" id="ifsc"
-                placeholder="Enter IFSC" name="ifsc">
+                placeholder="Enter IFSC" name="ifsc" [(ngModel)]="bankDetail.bankIfsc">
         </div>
-        
+
         <!-- Input field value should change to bank name -->
         <div class="input_wrapper">
             <label for="bankName">Bank Name</label>
-            <input type="text" [(ngModel)]="bankName">
+            <input type="text" name="bankName" [(ngModel)]="bankDetail.bankName">
+
         </div>
-        
-        <button  type="submit" id="btn1" class="submit_btn btn btn-default">SUBMIT</button>
+
+        <button type="submit" id="btn1" [disabled]="!bankDetailForm.form.valid"
+            class="submit_button btn btn-default">Submit</button>
     </form>
 </div>

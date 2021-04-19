@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <div class="inner_header">
         <div class="logo_container">
             <h1>emi<span>PAY</span>lelo</h1>
@@ -15,9 +15,139 @@
             </a>
         </ul>
     </div>
+</div> -->
+<div class="dashboard_grid">
+    <div class="stats_column">
+        <div class="card_wrapper">
+            <div class="card gold_card dashboard_card">
+                <div class="double_column double_column_no_padding">
+                    <img src="https://img.icons8.com/plasticine/2x/sim-card-chip.png" alt="card_chip" class="sticker">
+                    <img src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png" alt="card_company" class="card_company_logo">
+                </div>
+                <div class="single_column">
+                    <h3 class="card_number">
+                        **** **** **** 1234
+                    </h3>
+                </div>
+                <div class="double_column double_column_no_padding">
+                    <div class="card_holder_container">
+                        <h4 class="card_holder_name key">
+                            CARD HOLDER
+                        </h4>
+                        <h4 class="card_holder_name value">
+                            {{order.cardHolderName}}
+                        </h4>
+                    </div>
+                    <div class="expiry_container">
+                        <h4 class="card_expiry key">
+                            EXPIRES ON
+                        </h4>
+                        <h4 class="card_expiry value">
+                            01/25
+                        </h4>
+                    </div>
+                </div>
+                <!-- <span class="card_type_title">**** **** **** **42</span>
+                <span class="card_type_credit_limit">TOTAL CREDIT - 101</span>
+                <span class="card_type_joining_fee">{{order.cardHolderName}}</span> -->
+            </div>
+            <label for="gold" class="card_label">
+            </label>
+        </div>
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Remaining Credit
+            </h3>
+            <h2 class="stats_count">
+                ₹ 23,500
+            </h2>
+        </div>
+        
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Payment Due
+            </h3>
+            <h2 class="stats_count">
+                ₹ 26,500
+            </h2>
+        </div>
+    </div>
+    <div class="more_details_column">
+        <div class="single_column">
+            <div class="upcoming_transaction_wrapper">
+                <h3 class="upcoming_transaction_title">
+                    Upcoming Transaction
+                </h3>
+                <h3 class="upcoming_transaction_amount">
+                    ₹ 5000
+                </h3>
+                <button class="pay_now_button">
+                    PAY NOW
+                </button>
+            </div>
+            <h3 class="page_title">
+                Transactions
+            </h3>
+            <div class="users_details_container transaction_details_container">
+                <table class="users_details table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="table_header_title">Transaction ID</th>
+                            <th class="table_header_title">Date</th>
+                            <th class="table_header_title">Product</th>
+                            <th class="table_header_title">Amount</th>
+                            <!-- <th class="table_header_title">Verification Status</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transact of transactions">
+                            <td class="table_header_data_value">{{transact.transactionId}}</td>
+                            <td class="table_header_data_value">{{transact.transactionDate}}</td>
+                            <td class="table_header_data_value">{{transact.productName}}</td>
+                            <td class="table_header_data_value">{{transact.amount}}</td>
+                            <!-- <td>
+                                <div class="document_buttons_container">
+                                    <button id="aadhar_button" class="document_button" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="aadhar(user.userId)">
+                                        AADHAR
+                                    </button>
+                                    <button id="pan_button" class="document_button" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="pan(user.userId)">
+                                        PAN
+                                    </button>
+                                    <img src={{user.documentAadhar}} width=" 30px" height="30px">
+                                    <img src={{user.documentPan}} width="30px" height="30px">
+                                </div>
+                            </td>
+                            <td> 
+                                <div class="document_buttons_container verification_buttons_container">
+                                    <button  class="document_button verify_button"  style="background-color:green;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
+                                    type="button" (click)="setVerification(user.userId)">
+                                        &#10003;
+                                    </button>
+                                    <h5>{{user.verify}}</h5>
+                                    {{user.verificationStatus}}
+                                    <button  class="document_button verify_button"  style="background-color:red;border-radius: 15px 15px 15px 15px;color: white;width: 50px;" type="button">
+                                        X
+                                    </button>
+                                </div>
+                                
+                            </td> -->
+                        </tr>
+                    </tbody>
+                    <!-- <tfoot>
+                        <tr>
+                            <th class="table_header_title">User Id</th>
+                            <th class="table_header_title">Name</th>
+                            <th class="table_header_title">Card Type</th>
+                            <th class="table_header_title">Documents</th>
+                            <th class="table_header_title">Verification Status</th>
+                        </tr>
+                    </tfoot> -->
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class=pay_now>
+<!-- <div class=pay_now>
     Upcoming Installment - 26500
     <div class=button>
         <button style="margin-top:-60px;background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
@@ -25,12 +155,12 @@
             Pay Now
         </button>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <div class="transaction">
     Transactions
-</div>
-
+</div> -->
+<!-- 
 <div class="card">
     **** **** **** **42
     <div class=exp_date>
@@ -49,8 +179,8 @@
 
 <div class="card2">
     Payment Due - ₹26,500
-</div>
-
+</div> -->
+<!-- 
 <table class="content-table">
     <thead>
         <tr>
@@ -70,4 +200,4 @@
 
 
     </tbody>
-</table>
+</table> -->

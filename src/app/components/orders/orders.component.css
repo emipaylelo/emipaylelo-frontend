@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     list-style: none;
@@ -237,5 +237,134 @@
           margin-top: 13px;
         }
     * {
-        font-family: sans-serif; /* Change your font family */
+        font-family: sans-serif; 
       }
+ */
+.dashboard_grid{
+    display: grid;
+    grid-template-columns: calc(100vw - 6rem - 66vw) calc(100vw - 6rem - 33vw);
+    padding: 1rem;
+}
+
+.dashboard_card{
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+    margin: .1rem;
+    grid-template-columns: 1fr;
+    border-radius: .5rem;
+    padding: 1.5rem;
+}
+
+.gold_card{
+    background-image: linear-gradient(to right bottom, #ffb502, #fed901);
+}
+.stats_column{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+    padding: 2rem 1rem;
+   
+}
+
+.more_details_column{
+    padding: 2rem 1rem;
+}
+.page_title{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0347f7;
+}
+
+.stats_container{
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid #0347f7;
+    padding: 1.5rem;
+    grid-gap: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,.1);
+    max-height: 12rem;
+}
+
+.single_column{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0rem 1rem;
+    grid-gap: 1rem;
+}
+
+.stats_title{
+    font-size: 2rem;
+    color: #000;
+}
+.stats_count{
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #0347f7;
+}
+.sticker{
+    width: 5rem;
+    height: 4rem;
+}
+.card_holder_name{
+    text-transform: uppercase;
+}
+.card_wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.card_company_logo{
+    width: 5rem;
+    height: 2rem;
+    align-self: center;
+    justify-self: end;
+}
+
+.double_column{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+.double_column_no_padding, .single_column{
+    padding: 0rem;
+}
+.card_number{
+    font-size: 3rem;
+    justify-self: start;
+    color: white;
+}
+
+.orders_grid{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.order_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 1.5rem;
+    border: 1px solid #0347f7;
+    border-radius: .5rem;
+    grid-gap: 1rem;
+    box-shadow: 0px 0px 5px -2px rgba(0,0,0,.1);
+}
+
+.order_image_wrapper{
+    width: 100%;
+    height: 100%;
+}
+
+.order_image_wrapper > img{
+    width: 100%;
+    height: 100%;
+}
+
+.order_details_wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: .5rem;
+}
+.order_amount{
+    color: #0347f7;
+}

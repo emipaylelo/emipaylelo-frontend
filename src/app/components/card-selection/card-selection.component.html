@@ -1,35 +1,40 @@
-
 <!-- <div style="color:green;font-size: larger;width: 30px;height: 30px;">{{cardSelected}}</div> -->
 <div class="sign_up card_selection login">
     <div class="form_heading">CARD SELECTION<br></div>
-    <div class="grid-container form_class">
-        <div class="cards_container">
-            <input class="card_input" id="gold" type="radio" name="card_type" value="gold" checked>
-            <div class="card_container">
-                <div class="card gold_card">
-                    <span class="card_type_title">{{cards[0].cardType}}</span>
-                    <span class="card_type_credit_limit">TOTAL CREDIT - ₹ {{cards[0].totalCredit}}</span>
-                    <span class="card_type_joining_fee">JOINING FEE - ₹ {{cards[0].joiningFee}}</span>
+    <form #cardSelectionForm="ngForm" (ngSubmit)="setUserCardType(cardSelectionForm)" class="form_class">
+        <div class="grid-container form_class">
+            <div class="cards_container">
+                <input class="card_input" id="gold" type="radio" name="card_type" [value]="cards[1].cardTypeId"
+                    [(ngModel)]="cardIsSelected.cardTypeId" checked>
+                <div class="card_container">
+                    <div class="card gold_card">
+                        <span class="card_type_title">{{cards[1].cardType}}</span>
+                        <span class="card_type_credit_limit">TOTAL CREDIT - ₹ {{cards[1].cardLimit}}</span>
+                        <span class="card_type_joining_fee">JOINING FEE - ₹ {{cards[1].cardJoiningFee}}</span>
+                    </div>
+                    <label for="gold" class="card_label">
+                    </label>
                 </div>
-                <label for="gold" class="card_label">
-                </label>
-            </div>
-            
-            <input class="card_input" id="titanium" type="radio" name="card_type" value="titanium">
-            <div class="card_container">
-                <div class="card titanium_card">
-                    <span class="card_type_title">{{cards[1].cardType}}</span>
-                    <span class="card_type_credit_limit">TOTAL CREDIT - ₹ {{cards[1].totalCredit}}</span>
-                    <span class="card_type_joining_fee">JOINING FEE - ₹ {{cards[1].joiningFee}}</span>
+
+                <input class="card_input" id="titanium" type="radio" name="card_type" [value]="cards[0].cardTypeId"
+                    [(ngModel)]="cardIsSelected.cardTypeId">
+                <div class="card_container">
+                    <div class="card titanium_card">
+                        <span class="card_type_title">{{cards[0].cardType}}</span>
+                        <span class="card_type_credit_limit">TOTAL CREDIT - ₹ {{cards[0].cardLimit}}</span>
+                        <span class="card_type_joining_fee">JOINING FEE - ₹ {{cards[0].cardJoiningFee}}</span>
+                    </div>
+                    <label for="titanium" class="card_label">
+                    </label>
+
                 </div>
-                <label for="titanium" class="card_label">
-                </label>
-                
             </div>
+            <button type="submit" id="btn1" [disabled]="!cardSelectionForm.form.valid"
+                class="submit_button btn btn-default">Submit</button>
         </div>
-        <button id="btn1" class="submit_button">SUBMIT</button>
-    </div>
+    </form>
 </div>
+
 <!-- <div style="color:green;font-size: larger;width: 30px;height: 30px;">{{cardSelected}}</div> -->
 <!-- 
 <div class="grid-container">

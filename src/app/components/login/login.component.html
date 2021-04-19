@@ -6,8 +6,7 @@
         <div class="input_wrapper">
             <label for="email">Email</label>
             <input type="email" required #em="ngModel" placeholder="Enter Email Address" name="email"
-                [(ngModel)]="user.userEmail"
-                pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" />
+                [(ngModel)]="user.userEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" />
             <div *ngIf=" em.invalid &&(em.dirty||em.touched)" style="color: red;">
                 <div *ngIf="em.errors?.required">Email required</div>
                 <div *ngIf="em.errors?.pattern">Email is invalid</div>
@@ -22,9 +21,8 @@
 
         <div class="input_wrapper">
             <label for="psw">Password</label>
-            <input type="password" class="no-outline" name="psw" required #pwd="ngModel" [(ngModel)]="user.userPass"
-                id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                placeholder=" Enter password" name="password">
+            <input type="password" class="no-outline" name="psw" required #pwd="ngModel" [(ngModel)]="user.userPassword"
+                id="password" placeholder=" Enter password" name="password">
 
             <div *ngIf="pwd.invalid &&(pwd.dirty||pwd.touched)" style="color: red;">
                 <div *ngIf="pwd.errors?.required">Password required</div>
@@ -42,17 +40,17 @@
             <input type="checkbox" name="remember">
             <label style="font-size: 15px; color: #0347F7;">REMEMBER ME</label>
         </div>
-        
-        <div class="forgot_password"> 
-            <a href="#">FORGOT PASSWORD?</a> 
+
+        <div class="forgot_password">
+            <a href="#">FORGOT PASSWORD?</a>
         </div>
-        <div class="double_input_wrapper">    
+        <div class="double_input_wrapper">
             <div class="input_wrapper radio_wrapper">
-                <input type="radio" id="admin" name="user_type" value="admin">
-                <label for="admin" >ADMIN</label>
+                <input type="radio" id="admin" name="user_type" value="admin" [(ngModel)]="radioButton">
+                <label for="admin">ADMIN</label>
             </div>
             <div class="input_wrapper radio_wrapper">
-                <input type="radio" id="user" name="user_type" value="user">
+                <input type="radio" id="user" name="user_type" value="user" [(ngModel)]="radioButton">
                 <label for="user">USER</label>
             </div>
         </div>

@@ -16,7 +16,7 @@ html, body{
 
 h3{
     line-height: 1;
-    margin: 0;
+    margin: 0 !important;
 }
 
 .header{
@@ -98,72 +98,78 @@ input[type="text"], input[type="email"], input[type="password"]{
     height: 42rem;
 }
   
-  .form_heading{
-    text-align: center;
-    font-size: 2.5rem;
-    color: #0347F7;
-    margin: 0;
-  }
+.form_heading{
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0347F7;
+  margin: 0;
+}
+
+.input_wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
+  position: relative;
+}
+
+.input_wrapper label {
+  font-size: 1.3rem;
+  line-height: 1;
+}
   
-  .input_wrapper{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr;
-    position: relative;
-  }
+input{
+  outline: none;
+  font-size: 1.7rem;
+  border: 2px solid #333;
+  padding: .3rem 1rem;
+  border-radius: 0rem;
+  transition: .6s all;
+}
+
+input:focus{
+  border-color: #0347F7;
+  border-radius: .5rem;
+}
+
+.form_class{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
   
-  .input_wrapper label {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-  
-  input{
-    outline: none;
-    font-size: 1.7rem;
-    border: 2px solid #333;
-    padding: .3rem 1rem;
-    border-radius: 0rem;
-    transition: .6s all;
-  }
-  
-  input:focus{
-    border-color: #0347F7;
-    border-radius: .5rem;
-  }
-  
-  .form_class{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
-    
-  }
-  
-  #btn1{
-    outline: none;
-    border-radius: 2.5rem;
-    border: none;
-    color:white;
-    background-color: #0347F7;
-    font-size: 15px;       
-    transition: .3s all;
-    text-transform: uppercase;
-    max-height: 4rem;
-    min-height: 4rem;
-    padding: 1rem 4rem;
-    align-self: center;
-    justify-self: center;
-  }
-  
-  #btn1:hover{
-    transform: translateY(-3%);
-  }
-  
-  #btn1:active {
-    transform: translateY(3%);
-  }
-  
-  .double_input_wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: .5rem;
-  }
+}
+
+#btn1{
+  outline: none;
+  border-radius: 2.5rem;
+  border: none;
+  color:white;
+  background-color: #0347F7;
+  font-size: 15px;       
+  transition: .3s all;
+  text-transform: uppercase;
+  max-height: 4rem;
+  min-height: 4rem;
+  padding: 1rem 4rem;
+  align-self: center;
+  justify-self: center;
+}
+
+#btn1:hover{
+  transform: translateY(-3%);
+}
+
+#btn1:active {
+  transform: translateY(3%);
+}
+
+.double_input_wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: .5rem;
+}
+h3{
+  margin-bottom: 0;
+}
+.header_menu_item_link:hover{
+  color: white;
+}

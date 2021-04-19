@@ -108,4 +108,7 @@ border-bottom-left-radius:25px;
   height: 550px;
   border-width: 2px;
 } */
+.ng-invalid.ng-touched {
+    border-color: red;
+}
 

@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { AdminServiceService } from './../../services/admin-service.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
-
+import { User } from '../../Models/users';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,29 +11,25 @@ import { User } from './user';
 })
 export class LoginComponent implements OnInit {
   user: User = new User();
+  radioButton: string;
 
-  constructor() { }
+  constructor(private adminService: AdminServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
   checkLogin(loginForm: NgForm) {
     if (loginForm.valid) {
-      if (this.user.userEmail == "abc@gmail.com" && this.user.userPass == "abc") {
-
-        // this.router.navigate(['/bankdetails']);
-        alert("login success");
-
-      }
-
-      else {
-
-        // this.router.navigate(['/error']);
-        alert("login fail");
+      if (this.radioButton == "admin") {
+        this.adminService.adminLogin(this.user).subscribe(
+          isLoginValid => {
+            console.log(isLoginValid);
+            if (isLoginValid == true)
+              this.router.navigate(['/admindashboard']);
+          }
+        );
 
       }
     }
-    else {
-      alert("Enter all creds");
-    }
+
   }
 }

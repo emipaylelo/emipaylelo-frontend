@@ -1,13 +1,76 @@
-<header>
+<!-- <header>
     emiPAYlelo
     <button style="font-size: 15px;" class="btn  float-right " type="submit">
         Logout
     </button>
 
 </header>
-<br><br><br><br>
+<br><br><br><br> -->
+<div class="sign_up login">
+    <h3 class="form_heading">
+        Upload Documents
+    </h3>
+    <form #docDetailForm="ngForm" (ngSubmit)="setUserDocumentDetails(docDetailForm)" class="form_class">
 
-<div class="boxed">
+        <div class="upload_documents_wrapper">
+            <div class="single_column">
+                <div class="input_wrapper">
+                    <label for="aadhar_number">Aadhar</label>
+                    <input type="text" required placeholder="Enter Aadhar Number" name="aadhar_number" #ad="ngModel"
+                        [(ngModel)]="uploadDocs.aadharNo" />
+                    <div *ngIf=" ad.invalid &&(ad.dirty||ad.touched)" style="color: red;">
+                        <div *ngIf="ad.errors?.required">Aadhar required</div>
+                        <div *ngIf="ad.errors?.pattern">Aadhar is invalid</div>
+
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label for="pan_number">Pan</label>
+                    <input type="text" required placeholder="Enter Pan Number" name="pan_number" #pan="ngModel"
+                        [(ngModel)]="uploadDocs.panNo" />
+                    <div *ngIf=" pan.invalid &&(pan.dirty||pan.touched)" style="color: red;">
+                        <div *ngIf="pan.errors?.required">Pan required</div>
+                        <div *ngIf="pan.errors?.pattern">Pan is invalid</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="double_column file_upload_column">
+                <div class="file_input_div">
+                    <label for="aadhar_file"></label>
+                    <div class="file_input_wrapper">
+                        <img class="upload_icon" src="../../../assets/icons8-upload-64.png" alt="upload_icon">
+                        <h4 class="upload_title">Aadhar</h4>
+                    </div>
+                    <input id="aadhar_file" type="file" class="aadhar_file_input" name="aadhar_file" #adurl="ngModel"
+                        [(ngModel)]="uploadDocs.aadharUrl" required (change)="aadharfileupload($event.target)">
+                    <div *ngIf="adurl.touched" style="color: red;">
+                        <div *ngIf="adurl.errors?.required">Aadhar required</div>
+                    </div>
+                </div>
+                <div class="file_input_div">
+                    <label for="pan_file"></label>
+                    <div class="file_input_wrapper">
+                        <img class="upload_icon" src="../../../assets/icons8-upload-64.png" alt="upload_icon">
+                        <h4 class="upload_title">Pan</h4>
+                    </div>
+                    <input id="pan_file" type="file" class="aadhar_file_input" name="pan_file" #panurl="ngModel"
+                        [(ngModel)]="uploadDocs.panUrl" required (change)="panfileupload($event.target)">
+                    <div *ngIf="panurl.touched" style="color: red;">
+                        <div *ngIf="panurl.errors?.required">Pan required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_column">
+                <button type="submit" id="btn1" [disabled]="!docDetailForm.form.valid"
+                    class="submit_button btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- <div class="boxed">
     <div class=" form" style="font-size: 30px;align-items: center;
         justify-content: center; padding: 20px 100px; color: #0347F7;">UPLOAD DOCUMENTS</div>
 
@@ -16,4 +79,4 @@
 
 
 
-</div>
+</div> -->

@@ -1,6 +1,9 @@
+import { Router } from '@angular/router';
+import { SignUpServiceService } from './../../services/sign-up-service.service';
 import { NgForm } from '@angular/forms';
-import { User } from './user';
+import { User } from '../../Models/users';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -9,20 +12,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
   user: User = new User();
+  isDisabled: boolean = true;
 
-  constructor() { }
+  constructor(private signupservice: SignUpServiceService, private router: Router) { }
+  login(registerForm: NgForm) {
+    // console.log(this.user);
+    this.signupservice.registerUser(this.user).subscribe(
+      userPersisted => {
+        console.log(userPersisted);
+        localStorage.setItem("userId", userPersisted.userId.toString());
+        this.router.navigate(['/bankdetails']);
+      }
+    );
+  }
+
 
   ngOnInit(): void {
   }
-  checkRegister(registerForm: NgForm) {
-    if (registerForm.valid) {
+  // checkRegister(registerForm: NgForm) {
+  //   if (registerForm.valid) {
 
-      alert("user registered successfully");
+  //     this.isDisabled = false;
 
 
-    }
-    else {
-      alert("user not registered ");
-    }
-  }
+  //   }
+  // }
+  //   else {
+  //     alert("user not registered ");
+  //   }
+  // }
 }

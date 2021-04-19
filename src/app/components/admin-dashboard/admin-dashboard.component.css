@@ -347,6 +347,7 @@
     font-size: 1.2rem;
     border: none;
     padding: .5rem .75rem;
+    font-weight: 600;
 }
 
 .verify_button{

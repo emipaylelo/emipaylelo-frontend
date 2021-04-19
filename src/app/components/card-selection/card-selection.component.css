@@ -168,7 +168,7 @@ color: white;
 
 .card_selection{
     width: 85rem;
-    height: 35rem;
+    height: 45rem;
 }
 
 .cards_container{
@@ -228,3 +228,6 @@ color: white;
 .cards_container input[type="radio"]:checked + .card_container{
     border: 2px solid #0347F7;
 } 
+.ng-invalid.ng-touched {
+    border-color: red;
+}

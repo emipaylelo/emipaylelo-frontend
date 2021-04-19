@@ -1,4 +1,4 @@
- 
+/*  
 
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
@@ -100,7 +100,7 @@ border-bottom-left-radius:25px;
 }
 .boxed {
   border: 1px solid green ;
-  /* border:;border-width:4px; border-style:solid;;width: 540px;padding-left: 100px; */
+  border:;border-width:4px; border-style:solid;;width: 540px;padding-left: 100px;
 
   margin: auto;
   width: 50%;
@@ -120,4 +120,74 @@ border-bottom-left-radius:25px;
   border:3px;
   color: #0347F7;
   background-color: aliceblue;
+} */
+
+.upload_documents_wrapper{
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
+}
+.single_column{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+.double_column{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+.double_column_no_padding, .single_column{
+  padding: 0rem;
+}
+
+.file_upload_column{
+  padding: 0;
+}
+
+.aadhar_file_input{
+  position: absolute;
+  opacity: 0;
+}
+
+.file_input_wrapper{
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.file_input_div{
+  position: relative;
+  padding: 1rem 0rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #000;
+}
+
+.file_input_div:hover, .file_input_div:active{
+  border: 1px solid #0347f7;
+}
+
+label[for="aadhar_file"]{
+  position:absolute;
+  cursor: pointer;
+  /* background-color: red; */
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.upload_icon{
+  justify-self: center;
+}
+
+.upload_title{
+  justify-self: center;
+  color: #0347f7;
+}
+.ng-invalid.ng-touched {
+    border-color: red;
 }
