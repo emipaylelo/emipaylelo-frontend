@@ -10,29 +10,15 @@
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.counterup/1.0/jquery.counterup.min.js"></script>
     <title></title>
+    
 </head>
 
 <body>
-    <header class="header">
-        <div class="left">
-            <div class="logo">
-                <h3 class="logo_placeholder">
-                    emiPAYlelo
-                </h3>
-            </div>
-        </div>
-        <div class="right">
-            <nav class="navigation_menu">
-                <ul class="header_menu">
-
-                    <li class="header_menu_item">
-                        <a href="#" class="header_menu_item_link">Login</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <app-navbar-component></app-navbar-component>
     <div class="custom_container">
         <!-- <app-admin-dashboard></app-admin-dashboard> -->
         <!-- <app-bank-details></app-bank-details> -->
@@ -50,8 +36,18 @@
         <!-- <router-outlet></router-outlet> -->
         <app-shopping-page></app-shopping-page>
     </div>
-
-
+    
+    <script>
+        window.onload = function(){
+            jQuery(document).ready(function($){
+                $('.stats_count').counterUp({
+                    delay: 10,
+                    time: 2000
+                });
+            });
+        }
+        
+    </script>
 </body>
 
 </html>
