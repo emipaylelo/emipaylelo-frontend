@@ -6,6 +6,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UploadDocsComponent } from './components/upload-docs/upload-docs.component';
 import { CardSelectionComponent } from './components/card-selection/card-selection.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
   },
   {
     path: "admindashboard", component: AdminDashboardComponent
+  },
+  {
+    path: "profileDetails", component: ProfileDetailsComponent
   }
 ];
 

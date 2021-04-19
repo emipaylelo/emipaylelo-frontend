@@ -1,0 +1,228 @@
+<!-- <div class="header">
+    <div class="inner_header">
+        <div class="logo_container">
+            <h1>emi<span>PAY</span>lelo</h1>
+        </div>
+        <ul class="navigation">
+            <a>
+                <li>Orders</li>
+            </a>
+            <a>
+                <li>Transactions</li>
+            </a>
+            <a>
+                <li>Log Out</li>
+            </a>
+        </ul>
+    </div>
+</div> -->
+<div class="dashboard_grid">
+    <div class="stats_column">
+        <div class="card_wrapper">
+            <div class="card titanium_card dashboard_card">
+                <div class="double_column double_column_no_padding">
+                    <img src="https://img.icons8.com/plasticine/2x/sim-card-chip.png" alt="card_chip" class="sticker">
+                    <img src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png" alt="card_company" class="card_company_logo">
+                </div>
+                <div class="single_column">
+                    <h3 class="card_number">
+                        **** **** **** 1234
+                    </h3>
+                </div>
+                <div class="double_column double_column_no_padding">
+                    <div class="card_holder_container">
+                        <h4 class="card_holder_name key">
+                            CARD HOLDER
+                        </h4>
+                        <h4 class="card_holder_name value">
+                            {{user.userName}}
+                        </h4>
+                    </div>
+                    <div class="expiry_container">
+                        <h4 class="card_expiry key">
+                            EXPIRES ON
+                        </h4>
+                        <h4 class="card_expiry value">
+                            01/25
+                        </h4>
+                    </div>
+                </div>
+                <!-- <span class="card_type_title">**** **** **** **42</span>
+                <span class="card_type_credit_limit">TOTAL CREDIT - 101</span>
+                <span class="card_type_joining_fee">{{order.cardHolderName}}</span> -->
+            </div>
+            <label for="gold" class="card_label">
+            </label>
+        </div>
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Remaining Credit
+            </h3>
+            <h2 class="stats_count">
+                ₹ 20000
+            </h2>
+        </div>
+        
+        <div class="stats_container">
+            <h3 class="stats_title">
+                Payment Due
+            </h3>
+            <h2 class="stats_count">
+                ₹ {{dueAmount}}
+            </h2>
+        </div>
+    </div>
+    <div class="more_details_column">
+        <div class="user_name">
+            <h3>
+                Harpalsinh Jadeja
+                <span class="is_verified">Not Verified</span>
+            </h3> 
+            
+        </div>
+        <form #profileDetailsForm="ngForm" id="profile_details_form" class="profile_details_form">
+            <div class="double_input_wrapper">
+                <div class="input_wrapper">
+                    <label for="name">Name</label>
+                    <input type="text" #nm="ngModel" required placeholder="" name="name" [(ngModel)]="user.userName">
+                    <div *ngIf="nm.invalid &&(nm.dirty||nm.touched)" style="color: red;">
+                        <div *ngIf="nm.errors?.required">Name required</div>
+                        <div *ngIf="nm.errors?.pattern">Name is invalid</div>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" #mob="ngModel" required placeholder="" name="mobile" [(ngModel)]="user.userMobileNo"
+                        minlength=0 maxlength=10 pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$">
+                    <div *ngIf="mob.invalid &&(mob.dirty||mob.touched)" style="color: red;">
+                        <div *ngIf="mob.errors?.required">Mobile number is required</div>
+                        <div *ngIf="mob.errors?.pattern">Mobile number is invalid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="double_input_wrapper">
+                <div class="input_wrapper">
+                    <label for="email">Email</label>
+                    <input type="email" #em="ngModel" required placeholder="" name="email" [(ngModel)]="user.userEmail"
+                        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+                    <div *ngIf="em.invalid &&(em.dirty||em.touched)" style="color: red;">
+                        <div *ngIf="em.errors?.required">Email required</div>
+                        <div *ngIf="em.errors?.pattern">Email is invalid</div>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label for="bankName">Bank Name</label>
+                    <input type="text" name="bankName" [(ngModel)]="bankDetail.bankName">
+        
+                </div>
+            </div>
+            <div class="double_input_wrapper">
+                <div class="input_wrapper">
+                    <label for="accountNumber">Account Number</label>
+                    <input type="number" class="no-outline" required #acno="ngModel" [(ngModel)]="bankDetail.bankAccountNo"
+                        id="an" placeholder="Enter account number" name="accountNumber">
+                    <div *ngIf=" acno.invalid &&(acno.dirty||acno.touched)" style="color: red;">
+                        <div *ngIf="acno.errors?.required">Account Number Required</div>
+                        <br>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label for="ifsc">Bank IFSC Code</label>
+                    <input type="text" class="no-outline" required (input)="getBankName($event.target)" id="ifsc"
+                        placeholder="Enter IFSC" name="ifsc" [(ngModel)]="bankDetail.bankIfsc">
+                </div>
+            </div>
+            <div class="double_input_wrapper">
+                <div class="input_wrapper">
+                    <label for="psw">Password</label>
+                    <input type="password" placeholder="Enter Password" name="psw" required #pwd="ngModel"
+                        [(ngModel)]="user.userPassword"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    <div *ngIf="pwd.invalid &&(pwd.dirty||pwd.touched)" style="color: red;">
+                        <div *ngIf="pwd.errors?.required">Password required</div>
+                        <div *ngIf="pwd.errors?.pattern">Password is invalid</div>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label for="cpsw">Confirm Password</label>
+                    <input type="password" placeholder="Enter Confirm Password" name="cpsw" required #cpwd="ngModel"
+                        [(ngModel)]="confirmPassword"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    <div *ngIf="cpwd.invalid &&(cpwd.dirty||cpwd.touched)" style="color: red;">
+                        <div *ngIf="cpwd.errors?.required">Confirm Password required</div>
+                        <div *ngIf="cpwd.errors?.pattern">Confirm Password is invalid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="double_input_wrapper">
+                <div class="input_wrapper">
+                    <label for="name">Address</label>
+                    <textarea form="profile_details_form" type="text" #address="ngModel" required placeholder="Enter Address" name="user_address" [(ngModel)]="user.userAddress">
+                        Sahyadri Nagar
+                    </textarea>
+                    <div *ngIf="address.invalid &&(address.dirty||address.touched)" style="color: red;">
+                        <div *ngIf="address.errors?.required">Address required</div>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <button type="submit" id="btn1" [disabled]="!profileDetailsForm.form.valid"
+            class="submit_button btn btn-default">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <div class=pay_now>
+    Upcoming Installment - 26500
+    <div class=button>
+        <button style="margin-top:-60px;background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
+            type="button">
+            Pay Now
+        </button>
+    </div>
+</div> -->
+<!-- 
+<div class="transaction">
+    Transactions
+</div> -->
+<!-- 
+<div class="card">
+    **** **** **** **42
+    <div class=exp_date>
+        07/25
+        <div class=cvv>
+            101
+            <div class=card_name>
+                PANKAJ CHANDGUDE
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card1">
+    Remaining Credit - ₹23,500
+</div>
+
+<div class="card2">
+    Payment Due - ₹26,500
+</div> -->
+<!-- 
+<table class="content-table">
+    <thead>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transact of transactions">
+            <td>{{transact.transactionId}}</td>
+            <td>{{transact.transactionDate}}</td>
+            <td>{{transact.productName}}</td>
+            <td>{{transact.amount}}</td>
+        </tr>
+
+
+    </tbody>
+</table> -->
