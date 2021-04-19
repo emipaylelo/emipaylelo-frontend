@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { User } from 'src/app/Models/users';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 import { AdminDashboardData } from './admin';
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,38 +11,47 @@ import { AdminDashboardData } from './admin';
 export class AdminDashboardComponent implements OnInit {
 
   admin: AdminDashboardData = new AdminDashboardData();
-  users: AdminDashboardData[] = [{
-    userId: 1,
-    name: "pankaj",
-    cardType: "gold",
-    documentAadhar: " ",
-    documentPan: " ",
-    verificationStatus: false,
-    verify: " "
-  },
-  {
-    userId: 2,
-    name: "madhura",
-    cardType: "titanium",
-    documentAadhar: " ",
-    documentPan: " ",
-    verificationStatus: false,
-    verify: " "
-  }];
-  constructor() { }
+  users: User[];
+  
 
   ngOnInit(): void {
   }
-  aadhar(userId: number) {
-    this.users[userId - 1].documentAadhar = "../../../assets/aadhar.png";
+  
+  
+  title = 'appBootstrap';
+  imgUrl: string = "";
+
+  closeResult: string = " ";
+
+  constructor(private modalService: NgbModal,private adminservice:AdminServiceService) { }
+
+  open(content: any,i:number) {
+    this.imgUrl = this.users[i].panUrl;
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+
   }
-  pan(userId: number) {
-    this.users[userId - 1].documentPan = "../../../assets/pancard.jpeg";
+  
+  viewAllUsers() {
+    this.adminservice.viewAllUsers().subscribe(
+      userPersisted => {
+        console.log(userPersisted);
+        this.users = userPersisted;
+
+      }
+    );
   }
-  setVerification(userId: number) {
-    if (this.users[userId - 1].verificationStatus == false) {
-      this.users[userId - 1].verificationStatus = true;
-      this.users[userId - 1].verify = "user verified!";
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
   }
 }

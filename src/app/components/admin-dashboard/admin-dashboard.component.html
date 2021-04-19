@@ -78,16 +78,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let user of users">
+                        <button (click)="viewAllUsers()">View</button>
+                        <tr *ngFor="let user of users;index as i">
 
                             <td class="table_header_data_value">{{user.userId}}</td>
-                            <td class="table_header_data_value">{{user.name}}</td>
-                            <td class="table_header_data_value">{{user.cardType}}</td>
+                            <td class="table_header_data_value">{{user.userName}}</td>  
+                           <!---<td class="table_header_data_value">{{user.cardType}}</td> --> 
                             <td>
                                 <div class="document_buttons_container">
-                                    <button id="aadhar_button" class="document_button" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="aadhar(user.userId)">
+                                    <button id="aadhar_button" class="document_button"  (click)="open(mymodal,i)" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="aadhar(user.userId)">
                                         AADHAR
                                     </button>
+                                    <ng-template #mymodal let-modal>
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="modal-basic-title">Aadhar {{user.userName}}</h4>
+                                            <button type="button" class="close" aria-label="Close"
+                                                (click)="modal.dismiss('Cross click')">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src={{imgUrl}} width=200px height="200px">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-dark"
+                                                (click)="modal.close('Save click')">Ok</button>
+                                        </div>
+                                    </ng-template>
+                
                                     <button id="pan_button" class="document_button" style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;" type="button" (click)="pan(user.userId)">
                                         PAN
                                     </button>
