@@ -23,6 +23,7 @@
     "bootstrap": "^4.6.0",
     "ifsc": "^1.5.11",
     "jquery": "^3.6.0",
+    "ng-bootstrap": "^1.6.3",
     "ngb-modal": "^1.0.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

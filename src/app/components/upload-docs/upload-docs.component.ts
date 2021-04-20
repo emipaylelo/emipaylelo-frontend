@@ -36,7 +36,7 @@ export class UploadDocsComponent implements OnInit {
       userPersisted => {
         console.log(userPersisted);
 
-        this.router.navigate(['/cardselection']);
+        this.router.navigate(['/profiledetails']);
       }
     );
 

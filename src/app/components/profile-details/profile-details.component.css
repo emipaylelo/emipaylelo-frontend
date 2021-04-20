@@ -149,10 +149,17 @@
   margin-left: .5rem;
 }
 
-.is_verified{
+.is_not_verified{
   color: white;
   padding: .5rem 1.5rem;
   background-color: #777;
+  border-radius: .5rem;
+}
+
+.is_verified{
+  color: white;
+  padding: .5rem 1.5rem;
+  background-color: #018749;
   border-radius: .5rem;
 }
 .more_details_column{
@@ -177,4 +184,19 @@ textarea{
 
 .double_input_wrapper{
   grid-gap: 2rem;
+}
+
+.not_verified_card{
+  padding: 5rem 2rem;
+  text-align:center;
+}
+
+.not_verified_card h3{
+  font-size: 3rem;
+  color: white;
+  text-transform: uppercase;
+}
+.card_if_wrapper{
+  display: grid;
+  grid-gap: 1rem;
 }
