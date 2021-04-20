@@ -19,34 +19,41 @@
 <div class="dashboard_grid">
     <div class="stats_column">
         <div class="card_wrapper">
-            <div class="card titanium_card dashboard_card">
-                <div class="double_column double_column_no_padding">
-                    <img src="https://img.icons8.com/plasticine/2x/sim-card-chip.png" alt="card_chip" class="sticker">
-                    <img src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png" alt="card_company" class="card_company_logo">
-                </div>
-                <div class="single_column">
-                    <h3 class="card_number">
-                        **** **** **** 1234
-                    </h3>
-                </div>
-                <div class="double_column double_column_no_padding">
-                    <div class="card_holder_container">
-                        <h4 class="card_holder_name key">
-                            CARD HOLDER
-                        </h4>
-                        <h4 class="card_holder_name value">
-                            {{user.userName}}
-                        </h4>
+            <div class="card dashboard_card" [ngClass]="{'gold_card': cardType == 'GOLD', 'titanium_card': cardType == 'TITANIUM' || cardType == ''}">
+                <div *ngIf="user.isApproved else not_verified_card" class="card_if_wrapper">
+                    <div class="double_column double_column_no_padding">
+                        <img src="https://img.icons8.com/plasticine/2x/sim-card-chip.png" alt="card_chip" class="sticker">
+                        <img src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png" alt="card_company" class="card_company_logo">
                     </div>
-                    <div class="expiry_container">
-                        <h4 class="card_expiry key">
-                            EXPIRES ON
-                        </h4>
-                        <h4 class="card_expiry value">
-                            01/25
-                        </h4>
+                    <div class="single_column">
+                        <h3 class="card_number">
+                            {{card.cardNo}}
+                        </h3>
+                    </div>
+                    <div class="double_column double_column_no_padding">
+                        <div class="card_holder_container">
+                            <h4 class="card_holder_name key">
+                                CARD HOLDER
+                            </h4>
+                            <h4 class="card_holder_name value">
+                                {{user.userName}}
+                            </h4>
+                        </div>
+                        <div class="expiry_container">
+                            <h4 class="card_expiry key">
+                                EXPIRES ON
+                            </h4>
+                            <h4 class="card_expiry value">
+                                01/25
+                            </h4>
+                        </div>
                     </div>
                 </div>
+                <ng-template #not_verified_card>
+                    <div class="not_verified_card">
+                        <h3>Not Verified</h3>
+                    </div>
+                </ng-template>
                 <!-- <span class="card_type_title">**** **** **** **42</span>
                 <span class="card_type_credit_limit">TOTAL CREDIT - 101</span>
                 <span class="card_type_joining_fee">{{order.cardHolderName}}</span> -->
@@ -58,29 +65,41 @@
             <h3 class="stats_title">
                 Remaining Credit
             </h3>
-            <h2 class="stats_count">
-                ₹ 20000
-            </h2>
+            <div *ngIf="user.isApproved else not_verified_count">
+                <h2 class="stats_count">
+                    ₹ {{card.cardRemainingLimit}}
+                </h2>
+            </div>
+            <ng-template #not_verified_count>
+                <h2 class="stats_count">
+                    ₹ 0
+                </h2>
+            </ng-template>
+            
         </div>
         
         <div class="stats_container">
             <h3 class="stats_title">
                 Payment Due
             </h3>
-            <h2 class="stats_count">
-                ₹ {{dueAmount}}
-            </h2>
+            <div *ngIf="user.isApproved else not_verified_count">
+                <h2 class="stats_count">
+                    ₹ {{dueAmount}}
+                </h2>
+            </div>
         </div>
     </div>
     <div class="more_details_column">
         <div class="user_name">
             <h3>
-                Harpalsinh Jadeja
-                <span class="is_verified">Not Verified</span>
+                {{user.userName}}
+                <span [ngClass] = "{'is_verified': user.isApproved == true, 'is_not_verified': user.isApproved == false}">
+                    {{userVerificationStatus}}
+                </span>
             </h3> 
             
         </div>
-        <form #profileDetailsForm="ngForm" id="profile_details_form" class="profile_details_form">
+        <form #profileDetailsForm="ngForm" (ngSubmit)="profileDetails(profileDetailsForm)" id="profile_details_form" class="profile_details_form">
             <div class="double_input_wrapper">
                 <div class="input_wrapper">
                     <label for="name">Name</label>
@@ -151,6 +170,7 @@
                     <div *ngIf="cpwd.invalid &&(cpwd.dirty||cpwd.touched)" style="color: red;">
                         <div *ngIf="cpwd.errors?.required">Confirm Password required</div>
                         <div *ngIf="cpwd.errors?.pattern">Confirm Password is invalid</div>
+                        <div *ngIf="cpsd.value != pwd.value">Passwords do not match</div>
                     </div>
                 </div>
             </div>

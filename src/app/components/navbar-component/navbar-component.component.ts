@@ -15,7 +15,7 @@ export class NavbarComponentComponent implements OnInit {
   }
 
   isUserLoggedIn(){
-    return this.router.url.match('^/profileDetails') || this.router.url.match('^/orders') || this.router.url.match('^/transactions');
+    return this.router.url.match('^/profiledetails') || this.router.url.match('^/orders') || this.router.url.match('^/transactions');
   }
 
   isUserOnLoginPage(){

@@ -7,6 +7,9 @@ import { UploadDocsComponent } from './components/upload-docs/upload-docs.compon
 import { CardSelectionComponent } from './components/card-selection/card-selection.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { Transaction } from './Models/transaction';
+import { TransactionsComponent } from './components/transactions/transactions.component';
 
 const routes: Routes = [
   {
@@ -28,8 +31,14 @@ const routes: Routes = [
     path: "admindashboard", component: AdminDashboardComponent
   },
   {
-    path: "profileDetails", component: ProfileDetailsComponent
-  }
+    path: "profiledetails", component: ProfileDetailsComponent
+  },
+  {
+    path: "orders", component: OrdersComponent
+  },
+  {
+    path: "transactions", component: TransactionsComponent
+  },
 ];
 
 @NgModule({

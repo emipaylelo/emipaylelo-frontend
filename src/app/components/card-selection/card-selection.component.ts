@@ -46,7 +46,7 @@ export class CardSelectionComponent implements OnInit {
       userPersisted => {
         console.log(userPersisted);
 
-        // this.router.navigate(['/uploaddocs']);
+        this.router.navigate(['/uploaddocs']);
       }
     );
   }
