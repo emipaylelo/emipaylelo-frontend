@@ -16,7 +16,7 @@
             <div class="single_column">
                 <div class="input_wrapper">
                     <label for="aadhar_number">Aadhar</label>
-                    <input type="text" required placeholder="Enter Aadhar Number" name="aadhar_number" #ad="ngModel"
+                    <input type="text" required pattern="[0-9]{12}" minlength=12 maxlength=12 placeholder="Enter Aadhar Number" name="aadhar_number" #ad="ngModel"
                         [(ngModel)]="uploadDocs.aadharNo" />
                     <div *ngIf=" ad.invalid &&(ad.dirty||ad.touched)" style="color: red;">
                         <div *ngIf="ad.errors?.required">Aadhar required</div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="input_wrapper">
                     <label for="pan_number">Pan</label>
-                    <input type="text" required placeholder="Enter Pan Number" name="pan_number" #pan="ngModel"
+                    <input type="text" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" placeholder="Enter Pan Number" maxlength=10 name="pan_number" #pan="ngModel"
                         [(ngModel)]="uploadDocs.panNo" />
                     <div *ngIf=" pan.invalid &&(pan.dirty||pan.touched)" style="color: red;">
                         <div *ngIf="pan.errors?.required">Pan required</div>

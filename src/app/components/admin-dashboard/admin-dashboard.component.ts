@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/Models/users';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
@@ -23,16 +24,19 @@ export class AdminDashboardComponent implements OnInit {
 
   closeResult: string = " ";
 
-  constructor(private modalService: NgbModal,private adminservice:AdminServiceService) { }
+  constructor(private adminservice: AdminServiceService, private modalService: NgbModal, private sanitizer: DomSanitizer) { }
 
   open(content: any,i:number) {
-    this.imgUrl = this.users[i].panUrl;
+    //this.imgUrl = this.users[i].panUrl; 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
+  }
+  sanitizeImageUrl(aadharUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(aadharUrl);
   }
   
   viewAllUsers() {
