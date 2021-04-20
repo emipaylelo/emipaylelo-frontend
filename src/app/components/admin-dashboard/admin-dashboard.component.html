@@ -113,7 +113,7 @@
                                     </button>
                     <ng-template #mymodalpan let-modal>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="modal-basic-title">Pan {{user.userName}}</h4>
+                            <h4 class="modal-title" id="modal-basic-title">Pan {{user.userName}}S</h4>
                             <button type="button" class="close" aria-label="Close"
                                 (click)="modal.dismiss('Cross click')">
                                 <span aria-hidden="true">×</span>
@@ -186,8 +186,8 @@
             ₹26,500
         </div>
     </div>
-</div> -->
-<!-- 
+</div>
+
 <div class="G_users">
     <div class=text3>
         Gold Users
@@ -204,8 +204,9 @@
             10,000
         </div>
     </div>
-</div> -->
-<!-- 
+</div>
+<button (click)="viewAllUsers()">View</button>
+
 <div class="Users">
     Users
 </div>
@@ -215,31 +216,59 @@
         <tr>
             <th align="center">User Id</th>
             <th align="center">Name</th>
-            <th align="center">Card Type</th>
+             <th align="center">Card Type</th> -->
             <th align="center">Documents</th>
             <th align="center">Verification Status</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users;index as i">
 
             <td>{{user.userId}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.cardType}}</td>
+            <td>{{user.userName}}</td>
+            <!-- <td>{{user.cardType}}</td> -->
             <td>
                 <div class=button>
-                    <button style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
-                        type="button" (click)="aadhar(user.userId)">
-                        AADHAR
-                    </button> &nbsp;
-                    <button style="background-color: blue;border-radius: 15px 15px 15px 15px;color: white;"
-                        type="button" (click)="pan(user.userId)">
-                        PAN
-                    </button>
+
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal,i)">Aadhar</button>
+
+                    <ng-template #mymodal let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Aadhar {{user.userName}}</h4>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src={{imgUrl}} width=200px height="200px">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(mymodalpan)"
+                        style="margin-left: 10px;">Pan</button>
+
+                    <ng-template #mymodalpan let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Pan {{user.userName}}</h4>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src='../../../assets/pancard.jpeg' width=200px height="200px">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
                     <br>
-                    <img src={{user.documentAadhar}} width=" 30px"
-                        height="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img src={{user.documentPan}} width="30px" height="30px">
+
                 </div>
             </td>
             <td> <button style="background-color:green;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
@@ -247,8 +276,8 @@
                     &#10003;
                 </button>&nbsp;
                 <br>
-                <h5>{{user.verify}}</h5>
-                {{user.verificationStatus}}
+                <!-- <h5>{{user.verify}}</h5> -->
+                <!-- {{user.verificationStatus}} -->
                 <button style="background-color:red;border-radius: 15px 15px 15px 15px;color: white;width: 50px;"
                     type="button">
                     X
@@ -259,4 +288,4 @@
 
 
     </tbody>
-</table> -->
+</table>

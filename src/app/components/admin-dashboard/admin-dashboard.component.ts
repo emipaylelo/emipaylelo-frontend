@@ -1,9 +1,15 @@
+import { AdminServiceService } from './../../services/admin-service.service';
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/Models/users';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
+=======
+import { User } from 'src/app/Models/users';
+>>>>>>> origin/master
 import { AdminDashboardData } from './admin';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -58,4 +64,6 @@ export class AdminDashboardComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+
 }

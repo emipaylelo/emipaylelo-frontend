@@ -4,7 +4,7 @@
     <form #cardSelectionForm="ngForm" (ngSubmit)="setUserCardType(cardSelectionForm)" class="form_class">
         <div class="grid-container form_class">
             <div class="cards_container">
-                <input class="card_input" id="gold" type="radio" name="card_type" [value]="cards[1].cardTypeId"
+                <input class="card_input" id="gold" type="radio" name="card_type" [value]="cards[0].cardTypeId"
                     [(ngModel)]="cardIsSelected.cardTypeId" checked>
                 <div class="card_container">
                     <div class="card gold_card">
@@ -16,7 +16,7 @@
                     </label>
                 </div>
 
-                <input class="card_input" id="titanium" type="radio" name="card_type" [value]="cards[0].cardTypeId"
+                <input class="card_input" id="titanium" type="radio" name="card_type" [value]="cards[1].cardTypeId"
                     [(ngModel)]="cardIsSelected.cardTypeId">
                 <div class="card_container">
                     <div class="card titanium_card">
