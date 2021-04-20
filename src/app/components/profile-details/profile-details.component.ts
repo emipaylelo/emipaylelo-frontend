@@ -5,6 +5,10 @@ import { IfscService } from 'src/app/components/bank-details/ifsc-service';
 import { Card } from 'src/app/Models/card';
 import { CardType } from 'src/app/Models/card-type';
 import { CardTypeEnum } from 'src/app/Models/card-type-enum';
+import { ProfileDetailsService } from 'src/app/services/profile-details.service';
+import { NgForm } from '@angular/forms';
+import { SignUpServiceService } from 'src/app/services/sign-up-service.service';
+import { BankDetailServiceService } from './../../services/bank-detail-service.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -19,12 +23,24 @@ export class ProfileDetailsComponent implements OnInit {
   dueAmount:number;
   confirmPassword:string;
   userVerificationStatus:string;
-  cardType:string = 'gold';
+  cardType:string;
+  userId:number;
 
-  constructor(private ifscservice: IfscService) { }
+  constructor(private ifscservice: IfscService, private profileDetailsService: ProfileDetailsService, private signUpService:SignUpServiceService, private bankDetailService:BankDetailServiceService) { }
 
   ngOnInit(): void {
-    console.log(this.cardType);
+    this.userId = Number(localStorage.getItem("userId"));
+    this.profileDetailsService.getUser(this.userId).subscribe(
+      userPersisted => {
+        this.user = userPersisted;
+        this.card = userPersisted.card;
+        this.bankDetail = userPersisted.bankdetail;
+        if(this.user.isApproved) {
+          this.dueAmount = this.card.cardType.cardLimit - this.card.cardRemainingLimit;          
+        }
+        this.cardType = userPersisted.joiningfee.cardType.cardType.toString();
+      }
+    );
     if(this.user.isApproved) {
       this.userVerificationStatus = 'Verified';
     } else {
@@ -50,11 +66,12 @@ export class ProfileDetailsComponent implements OnInit {
         console.log(JSON.stringify(fetchIfsc));
         this.bankDetail.bankIfsc = fetchIfsc.IFSC;
         this.bankDetail.bankName = fetchIfsc.BANK;
-        console.log(this.bankDetail);
       }
-
-
     );
+  }
 
+  profileDetails(form:NgForm) {
+    this.signUpService.registerUser(this.user);
+    this.bankDetailService.setUserBankDetails(this.bankDetail, this.userId);
   }
 }

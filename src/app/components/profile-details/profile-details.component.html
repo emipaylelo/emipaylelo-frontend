@@ -19,7 +19,7 @@
 <div class="dashboard_grid">
     <div class="stats_column">
         <div class="card_wrapper">
-            <div class="card dashboard_card" [ngClass]="{'gold_card': cardType == 'gold', 'titanium_card': cardType == 'titanium' || cardType == ''}">
+            <div class="card dashboard_card" [ngClass]="{'gold_card': cardType == 'GOLD', 'titanium_card': cardType == 'TITANIUM' || cardType == ''}">
                 <div *ngIf="user.isApproved else not_verified_card" class="card_if_wrapper">
                     <div class="double_column double_column_no_padding">
                         <img src="https://img.icons8.com/plasticine/2x/sim-card-chip.png" alt="card_chip" class="sticker">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="single_column">
                         <h3 class="card_number">
-                            **** **** **** 1234
+                            {{card.cardNo}}
                         </h3>
                     </div>
                     <div class="double_column double_column_no_padding">
@@ -36,7 +36,7 @@
                                 CARD HOLDER
                             </h4>
                             <h4 class="card_holder_name value">
-                                Harpalsinh Jadeja
+                                {{user.userName}}
                             </h4>
                         </div>
                         <div class="expiry_container">
@@ -67,7 +67,7 @@
             </h3>
             <div *ngIf="user.isApproved else not_verified_count">
                 <h2 class="stats_count">
-                    ₹ 20000
+                    ₹ {{card.cardRemainingLimit}}
                 </h2>
             </div>
             <ng-template #not_verified_count>
@@ -84,7 +84,7 @@
             </h3>
             <div *ngIf="user.isApproved else not_verified_count">
                 <h2 class="stats_count">
-                    ₹ 80000
+                    ₹ {{dueAmount}}
                 </h2>
             </div>
         </div>
@@ -92,14 +92,14 @@
     <div class="more_details_column">
         <div class="user_name">
             <h3>
-                Harpalsinh Jadeja
+                {{user.userName}}
                 <span [ngClass] = "{'is_verified': user.isApproved == true, 'is_not_verified': user.isApproved == false}">
                     {{userVerificationStatus}}
                 </span>
             </h3> 
             
         </div>
-        <form #profileDetailsForm="ngForm" id="profile_details_form" class="profile_details_form">
+        <form #profileDetailsForm="ngForm" (ngSubmit)="profileDetails(profileDetailsForm)" id="profile_details_form" class="profile_details_form">
             <div class="double_input_wrapper">
                 <div class="input_wrapper">
                     <label for="name">Name</label>
@@ -170,6 +170,7 @@
                     <div *ngIf="cpwd.invalid &&(cpwd.dirty||cpwd.touched)" style="color: red;">
                         <div *ngIf="cpwd.errors?.required">Confirm Password required</div>
                         <div *ngIf="cpwd.errors?.pattern">Confirm Password is invalid</div>
+                        <div *ngIf="cpsd.value != pwd.value">Passwords do not match</div>
                     </div>
                 </div>
             </div>

@@ -75,7 +75,7 @@ export class BankDetailsComponent implements OnInit {
       userPersisted => {
         console.log(userPersisted);
 
-        this.router.navigate(['/uploaddocs']);
+        this.router.navigate(['/cardselection']);
       }
     );
   }
